@@ -1,6 +1,6 @@
-using Core.BaseTestObjects;
+using EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects;
 
-namespace Core.Builders
+namespace EXCSLA.Shared.Tests.Core.UnitTests.Builders
 {
     public class AggregateRootBuilder
     {

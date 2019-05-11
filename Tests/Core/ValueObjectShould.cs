@@ -1,7 +1,7 @@
 using Xunit;
-using Core.Builders;
+using EXCSLA.Shared.Tests.Core.UnitTests.Builders;
 
-namespace Core
+namespace EXCSLA.Shared.Tests.Core.UnitTests
 {
     public class ValueObjectShould
     {

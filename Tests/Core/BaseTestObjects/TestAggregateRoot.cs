@@ -1,6 +1,6 @@
 using EXCSLA.Shared.Core;
 
-namespace Core.BaseTestObjects
+namespace EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects
 {
     public class TestAggregateRoot : AggregateRoot<int>
     {

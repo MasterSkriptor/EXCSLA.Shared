@@ -19,7 +19,7 @@ namespace EXCSLA.Shared.Core
             if(ReferenceEquals(other, default(TId)) || ReferenceEquals(this, default(TId)))
                 return false;
 
-            return ReferenceEquals(Id, other.Id);
+            return EqualityComparer<TId>.Default.Equals(Id, other.Id);
         }
 
         public static bool operator ==(BaseEntity<TId> a, BaseEntity<TId> b)

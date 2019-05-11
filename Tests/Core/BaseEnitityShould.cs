@@ -19,7 +19,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         public void BaseEntityDoesNotEqual()
         {
             var test1 = BaseEntityBuilder.GetDefaultTestBaseEntity();
-            var test2 = new BaseEntityBuilder(1, "Harold", "Collins").Build();
+            var test2 = new BaseEntityBuilder(2, "Harold", "Collins").Build();
 
             Assert.NotEqual(test1, test2);
         }

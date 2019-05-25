@@ -43,4 +43,9 @@ namespace EXCSLA.Shared.Core
             return Id.GetHashCode();
         }
     }
+
+    public abstract class BaseEntity : BaseEntity<object>
+    {
+        
+    }
 }

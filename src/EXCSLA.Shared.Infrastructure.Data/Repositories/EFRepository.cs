@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EXCSLA.Shared.Infrastructure.Data.Repositories
 {
-    public abstract class EFRepository<T> : IAsyncRepository<T> where T : BaseEntity<int>
+    public abstract class EFRepository<T> : IAsyncRepository<T> where T : BaseEntity
     {
         protected readonly DbContext _dbContext;
 

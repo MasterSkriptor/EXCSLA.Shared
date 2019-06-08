@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace EXCSLA.Shared.Core
 {
-    public abstract class AggregateRoot<TId> : BaseEntity<TId>
+    public abstract class AggregateRoot : BaseEntity
     {
         private readonly List<BaseDomainEvent> _events = new List<BaseDomainEvent>();
         public virtual IReadOnlyList<BaseDomainEvent> Events => _events;
@@ -16,10 +16,5 @@ namespace EXCSLA.Shared.Core
         {
             _events.Clear();
         }
-    }
-
-    public abstract class AggregateRoot : AggregateRoot<object>
-    {
-        
     }
 }

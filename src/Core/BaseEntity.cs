@@ -2,25 +2,9 @@ using System.Collections.Generic;
 
 namespace EXCSLA.Shared.Core
 {
-    public abstract class BaseEntity<TId> : BaseEntity
-    {
-        public new TId Id
-        {
-            get
-            {
-                return (TId)base.Id;
-            }
-
-            set
-            {
-                base.Id = value;
-            }
-        }
-    }
-
     public abstract class BaseEntity
     {
-        public object Id { get; set; }
+        public virtual int Id { get; set; }
 
         public override bool Equals(object obj)
         {

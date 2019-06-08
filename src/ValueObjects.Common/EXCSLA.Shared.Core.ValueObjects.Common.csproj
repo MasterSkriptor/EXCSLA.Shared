@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>EXCSLA.Shared.Core.ValueObjects.Common</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Product>EXCSLA.Shared.Core.ValueObjects.Common</Product>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EXCSLA.Shared.Core" />
+    <PackageReference Include="EXCSLA.Shared.Core" Version="1.0.4" />
   </ItemGroup>
 
 </Project>

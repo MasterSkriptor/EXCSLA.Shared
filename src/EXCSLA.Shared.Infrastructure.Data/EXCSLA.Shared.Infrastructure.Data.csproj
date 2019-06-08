@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>EXCSLA.Shared.Infrastructure.Data</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Product>EXCSLA.Shared.Core</Product>
@@ -21,10 +21,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="EXCSLA.Shared.Core" Version ="1.0.4" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Core\EXCSLA.Shared.Core.csproj" />
-  </ItemGroup>
-
 </Project>

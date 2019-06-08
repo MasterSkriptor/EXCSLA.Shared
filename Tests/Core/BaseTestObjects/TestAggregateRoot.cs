@@ -2,7 +2,7 @@ using EXCSLA.Shared.Core;
 
 namespace EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects
 {
-    public class TestAggregateRoot : AggregateRoot<int>
+    public class TestAggregateRoot : AggregateRoot
     {
         public string FirstName {get; private set;}
         public string LastName {get; private set;}

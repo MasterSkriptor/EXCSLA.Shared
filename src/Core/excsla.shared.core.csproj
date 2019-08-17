@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>EXCSLA.Shared.Core</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Product>EXCSLA.Shared.Core</Product>
@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ardalis.GuardClauses" Version="1.2.8" />
+    <PackageReference Include="Ardalis.GuardClauses" Version="1.2.9" />
   </ItemGroup>
 
 </Project>

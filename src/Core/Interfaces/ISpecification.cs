@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Core.Interfaces
+namespace EXCSLA.Shared.Core.Interfaces
 {
     public interface ISpecification<T>
     {

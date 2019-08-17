@@ -1,4 +1,4 @@
-﻿using Core.Interfaces;
+﻿using EXCSLA.Shared.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;

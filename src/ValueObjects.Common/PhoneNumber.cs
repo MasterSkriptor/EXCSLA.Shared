@@ -4,13 +4,22 @@ using System.Linq;
 
 namespace EXCSLA.Shared.Core.ValueObjects.Common
 {
+    /// <summary>
+    /// Phone Type is an enum used to describe the type of phone number in use. Home, Mobile, Work, Fax, etc.
+    /// </summary>
     public enum PhoneType
     {
         Home = 0,
         Mobile = 1,
-        Work = 2
+        Work = 2,
+        Fax = 3
     }
 
+    /// <summary>
+    /// A standard US based phone number. Because this is a 
+    /// value object, any changes to this object should result in a new object creation. Thus there is no
+    /// public setting of properties.
+    /// </summary>
     public class PhoneNumber : ValueObject
     {
         public PhoneType Type {get; private set;}
@@ -18,6 +27,20 @@ namespace EXCSLA.Shared.Core.ValueObjects.Common
         public string Prefix {get; private set;}
         public string Suffix {get; private set;}
 
+        /// <summary>
+        /// This is an entity framework required constructor, and should not be used by the programmer. Because
+        /// this is a value object there is not way to set the values of its properties, making this constructor 
+        /// usesless to anyone other than ORM's.
+        /// </summary>
+        public PhoneNumber() { } // Required by EF
+
+        /// <summary>
+        /// Creates a standard US based phone number value object
+        /// </summary>
+        /// <param name="type">The type of phone number. Mobile, Home, Work, Fax, ect.</param>
+        /// <param name="areaCode">The area code portion of a phone number.</param>
+        /// <param name="prefix">The prefix portion of a phone number.</param>
+        /// <param name="suffix">The suffix portion of a phone number.</param>
         public PhoneNumber(PhoneType type, string areaCode, string prefix, string suffix)
         {
             this.Type = type;
@@ -26,6 +49,13 @@ namespace EXCSLA.Shared.Core.ValueObjects.Common
             SetSuffix(suffix);
         }
 
+        /// <summary>
+        /// Creates a stanard US based phone number value object
+        /// </summary>
+        /// <param name="type">The type of phone number. Mobile, Home, Work, Fax, ect.</param>
+        /// <param name="phoneNumber">A string containing the entire phone number. Areacode, prefix, suffix. The format for
+        /// this can be the entire number, 1234567890, or formatted (123)456-7890.
+        /// </param>
         public PhoneNumber(PhoneType type, string phoneNumber)
         {
             // Trim any spaces from phone number.
@@ -74,6 +104,10 @@ namespace EXCSLA.Shared.Core.ValueObjects.Common
                 Suffix = suffix;
         }
 
+        /// <summary>
+        /// Returns a string containing the formatted phone number: eg. (123)456-7890
+        /// </summary>
+        /// <returns>example: (123)456-7890</returns>
         public override string ToString()
         {
             return "(" + this.AreaCode + ") " + this.Prefix + "-" + this.Suffix;

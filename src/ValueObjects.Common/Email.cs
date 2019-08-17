@@ -6,11 +6,27 @@ using EXCSLA.Shared.Core.Exceptions;
 
 namespace EXCSLA.Shared.Core.ValueObjects.Common
 {
+    /// <summary>
+    /// A standard email address value object. Because this is a 
+    /// value object, any changes to this object should result in a new object creation. Thus there is no
+    /// public setting of properties.
+    /// </summary>
     public class Email : ValueObject
     {
         public string Address {get; private set;}
         public string Domain {get; private set;}
 
+        /// <summary>
+        /// This is an entity framework required constructor, and should not be used by the programmer. Because
+        /// this is a value object there is not way to set the values of its properties, making this constructor 
+        /// usesless to anyone other than ORM's.
+        /// </summary>
+        public Email() { } // Required by EF
+
+        /// <summary>
+        /// Creates a standard email address value object.
+        /// </summary>
+        /// <param name="emailAddress">A string containing the full email address.</param>
         public Email(string emailAddress)
         {
             if(!IsValidEmail(emailAddress)) throw new EmailAddressOutOfBoundsException("The email address is malformed.");
@@ -20,6 +36,11 @@ namespace EXCSLA.Shared.Core.ValueObjects.Common
 
         }
 
+        /// <summary>
+        /// Creates a standard email address value object
+        /// </summary>
+        /// <param name="address">The user name portion of an email address.</param>
+        /// <param name="domain">The domain name portion of an email address.</param>
         public Email(string address, string domain)
         {
             this.Address = address;
@@ -33,7 +54,7 @@ namespace EXCSLA.Shared.Core.ValueObjects.Common
             this.Address = address;
         }
 
-        public void SetDomain(string domain)
+        private void SetDomain(string domain)
         {
             this.Domain = domain;
         }

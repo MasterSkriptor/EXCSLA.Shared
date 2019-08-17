@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using EXCSLA.Shared.Core;
 
-namespace Core.Interfaces
+namespace EXCSLA.Shared.Core.Interfaces
 {
     public interface IAsyncRepository<T> where T : BaseEntity
     {

@@ -17,11 +17,20 @@
     </PackageDescription>
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
     <PackageTags>DDD; DotNet; Core; Domain Driven Design; Repository; Executive Computer Systems</PackageTags>
+    <Copyright>Executive Computer Systems, LLC</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
 
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Ardalis.GuardClauses" Version="1.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

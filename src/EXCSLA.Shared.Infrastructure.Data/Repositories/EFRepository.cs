@@ -1,5 +1,5 @@
-﻿using Core.Interfaces;
-using EXCSLA.Shared.Core;
+﻿using EXCSLA.Shared.Core;
+using EXCSLA.Shared.Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

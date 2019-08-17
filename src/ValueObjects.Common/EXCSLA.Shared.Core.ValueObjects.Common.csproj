@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>EXCSLA.Shared.Core.ValueObjects.Common</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Product>EXCSLA.Shared.Core.ValueObjects.Common</Product>
@@ -13,8 +13,9 @@
     <PackageTags>DDD; DotNet; Core; Domain Driven Design; Value Objects; Executive Computer Systems</PackageTags>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="EXCSLA.Shared.Core" Version="1.0.4" />
+    <ProjectReference Include="..\Core\EXCSLA.Shared.Core.csproj" />
   </ItemGroup>
 
 </Project>

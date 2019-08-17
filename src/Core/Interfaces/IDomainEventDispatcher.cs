@@ -1,6 +1,6 @@
 using EXCSLA.Shared.Core;
 
-namespace Core.Interfaces
+namespace EXCSLA.Shared.Core.Interfaces
 {
     public interface IDomainEventDispatcher
     {

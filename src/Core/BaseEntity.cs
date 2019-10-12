@@ -2,6 +2,10 @@ using System.Collections.Generic;
 
 namespace EXCSLA.Shared.Core
 {
+    /// <summary>
+    /// Base class for DDD Entity objects. Handles equality based off of Id field.
+    /// Inherit from this class for any domain entity that needs to be tracked by an Id.
+    /// </summary>
     public abstract class BaseEntity
     {
         public virtual int Id { get; set; }

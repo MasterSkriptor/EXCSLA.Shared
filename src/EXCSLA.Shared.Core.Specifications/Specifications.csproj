@@ -1,36 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>EXCSLA.Shared.Core</PackageId>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>EXCSLA.Shared.Core.Specifications</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.5</Version>
+    <Version>1.3.0</Version>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Product>EXCSLA.Shared.Core</Product>
     <Description>A Domain Driven shared library, containing basic components for setting up a domain.</Description>
     <PackageDescription>
-      A Domain Driven shared library, containing basic components for setting up a domain. Contains base classes for AggregateRoots, Entities, and value objects. 
-      These each have proper overrides for Equals, ==, and !=. 
-      This package also includes interfaces for setting up domain events as well as interfaces for using a repository pattern. 
+      A Domain Driven shared library, containing basic components for setting up a domain. Contains base classes for AggregateRoots, Entities, and value objects.
+      These each have proper overrides for Equals, ==, and !=.
+      This package also includes interfaces for setting up domain events as well as interfaces for using a repository pattern.
       This is an open source project please feel free to do a pull request on the github repo.
     </PackageDescription>
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
     <PackageTags>DDD; DotNet; Core; Domain Driven Design; Repository; Executive Computer Systems</PackageTags>
-    <Copyright>Executive Computer Systems, LLC</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-
+    <Copyright>Executive Computer Systems, LLC</Copyright>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Ardalis.GuardClauses" Version="1.2.9" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\Core\DomainModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>EXCSLA.Shared.Core</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.3.0</Version>
+    <Authors>H.E. Collins</Authors>
+    <Company>Executive Computer Systems, LLC</Company>
+    <Product>EXCSLA.Shared.Core</Product>
+    <Description>A Domain Driven shared library, containing basic components for setting up a domain. This package gives access to common exceptions in the domain.</Description>
+    <PackageDescription>
+      A Domain Driven shared library, containing basic components for setting up a domain. This package gives access to common exceptions in the domain.
+    </PackageDescription>
+    <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
+    <PackageTags>DDD; DotNet; Core; Domain Driven Design; Repository; Executive Computer Systems</PackageTags>
+    <Copyright>Executive Computer Systems, LLC</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Link="LICENSE">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.3.0</Version>
+    <PackageId>EXCSLA.Shared.Core.Abstractions</PackageId>
+    <Authors>H.E. Collins</Authors>
+    <Company>Executive Computer Systems, LLC</Company>
+    <Product>EXCSLA.Shared.Core.Abstractions</Product>
+    <Description>A Domain Driven shared library, containing basic components for setting up a domain. This package contains interfaces needed to implement various services within this framework.</Description>
+    <Copyright>Executive Computer Systems, LLC</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://dev.azure.com/masterskriptor/Excsla.Clean.Framework.Nuget</PackageProjectUrl>
+    <PackageTags>DDD; DotNet; Core; Domain Driven Design; Repository; Executive Computer Systems</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Core\DomainModels.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>EXCSLA.Shared.Infrastructure.AlertService</AssemblyName>
+    <RootNamespace>EXCSLA.Shared.Infrastructure.Services</RootNamespace>
+    <Authors>H.E. Collins</Authors>
+    <Company>Executive Computer Systems, LLC</Company>
+    <Description>A Domain Driven shared library, containing basic components for setting up a bootstrap 4 html alert service. This package only contains the backend service. It does not contain the javascript needed to call the service.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EXCSLA.Shared.Core.Abstractions.AlertService" Version="1.0.0" />
+    <PackageReference Include="EXCSLA.Shared.Core.ValueObjects.Common" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>

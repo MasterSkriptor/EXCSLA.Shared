@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>EXCSLA.Shared.Core.Interfaces</RootNamespace>
+    <AssemblyName>EXCSLA.Shared.Core.Abstractions.AlertService</AssemblyName>
+    <Authors>H.E. Collins</Authors>
+    <Company>Executive Computer Systems, LLC</Company>
+    <Description>A Domain Driven shared library, containing basic components for setting up a domain. This package contains interfaces needed to implement the Alert Service within this framework.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EXCSLA.Shared.Core.ValueObjects.Common" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\EXCSLA.Shared\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

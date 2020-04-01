@@ -5,7 +5,13 @@ using System.Reflection;
 
 namespace EXCSLA.Shared.Core
 {
-    // source: https://github.com/jhewlett/ValueObject
+
+    /// <summary>
+    /// Base class for Value objects. This class overrides equal operatore for checking
+    /// equality based off of all fields in the class.
+    /// This code was sourced from the following link:
+    /// <a href="https://github.com/jhewlett/ValueObject">https://github.com/jhewlett/ValueObject</a>
+    /// </summary>
     public abstract class ValueObject : IEquatable<ValueObject>
     {
         private List<PropertyInfo> properties;

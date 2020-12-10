@@ -10,7 +10,7 @@
     <Description>A Domain Driven shared library, containing basic components for setting up an email service using SendGrid.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="EXCSLA.Shared.Core.Abstractions" Version="2.0.0" />
+    <PackageReference Include="EXCSLA.Shared.Core.GuardClauses" Version="1.0.0" />
     <PackageReference Include="Sendgrid" Version="9.12.0" />
   </ItemGroup>
 

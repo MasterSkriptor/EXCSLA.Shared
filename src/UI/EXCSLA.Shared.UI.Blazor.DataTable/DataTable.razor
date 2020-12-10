@@ -1,0 +1,74 @@
+﻿@typeparam TItem
+
+<h4>@Title</h4>
+
+@HeadingContentTemplate
+@if (OnCreate.HasDelegate)
+{
+    <BSButton Color="Color.Link" OnClick="@(_ => HandleCreate())">Create</BSButton>
+    
+}
+@if (OnEdit.HasDelegate)
+{
+    
+}
+@if (OnDelete.HasDelegate)
+{
+    @if (IsDeleteModal)
+    {
+        @DeleteModalItemTemplate
+    }
+}
+<BSTable IsStriped="@IsStriped">
+    <thead>
+        <tr>
+            @TableHeaderContentTemplate
+            @if (OnEdit.HasDelegate || OnDelete.HasDelegate)
+            {
+                <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @if (Items == null)
+        {
+            <Spinner Title="Loading..." Type="@SpinnerType" />
+        }
+        else
+        {
+            @if (Items.Count == 0)
+            {
+                <p>No records available...</p>
+            }
+            else
+            {
+                @foreach (var item in Items)
+                {
+                    <tr>
+                        @ItemTemplate(item)
+                        @if (OnEdit.HasDelegate || OnDelete.HasDelegate)
+                        {
+                            <td>
+                                @if (OnEdit.HasDelegate)
+                                {
+
+                                    <BSButton Color="Color.Link" Size="Size.Small" OnClick="@(_ => HandleEdit(item))">Edit</BSButton>
+
+                                }
+                                @if (OnDelete.HasDelegate)
+                                {
+                                    <BSButton Color="Color.Link" Size="Size.Small" OnClick="@(_ => HandleDelete(item))">Delete</BSButton>
+                                }
+                            </td>
+                        }
+                    </tr>
+                }
+            }
+
+        }
+
+    </tbody>
+    <tfoot>
+        @TableFooterContentTemplate
+    </tfoot>
+</BSTable>

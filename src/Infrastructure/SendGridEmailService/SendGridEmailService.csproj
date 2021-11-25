@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>EXCSLA.Shared.Infrastructure</RootNamespace>
     <AssemblyName>EXCSLA.Shared.Infrastructure.SendGridEmailService</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -10,14 +10,14 @@
     <Description>A Domain Driven shared library, containing basic components for setting up an email service using SendGrid.</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
-    <Version>3.0.0</Version>
+    <Version>4.0.1</Version>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EXCSLA.Shared.Core.Abstractions" Version="3.0.0" />
-    <PackageReference Include="EXCSLA.Shared.Core.GuardClauses" Version="3.0.0" />
-    <PackageReference Include="Sendgrid" Version="9.22.0" />
+    <PackageReference Include="EXCSLA.Shared.Core.Abstractions" Version="4.0.1" />
+    <PackageReference Include="EXCSLA.Shared.Core.GuardClauses" Version="4.0.1" />
+    <PackageReference Include="Sendgrid" Version="9.25.0" />
   </ItemGroup>
 
 </Project>

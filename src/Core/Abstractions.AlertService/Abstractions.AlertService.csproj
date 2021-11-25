@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>EXCSLA.Shared.Core.Interfaces</RootNamespace>
     <AssemblyName>EXCSLA.Shared.Core.Abstractions.AlertService</AssemblyName>
     <Authors>H.E. Collins</Authors>
@@ -11,11 +11,11 @@
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
-    <Version>3.0.0</Version>
+    <Version>4.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EXCSLA.Shared.Core.ValueObjects.Common" Version="3.0.0" />
+    <PackageReference Include="EXCSLA.Shared.Core.ValueObjects.Common" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

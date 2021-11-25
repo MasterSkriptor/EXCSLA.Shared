@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <PackageLicenseFile></PackageLicenseFile>
@@ -10,12 +10,12 @@
     <PackageId>EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher</PackageId>
     <AssemblyName>EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher</AssemblyName>
     <RootNamespace>EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher</RootNamespace>
-    <Version>3.0.0</Version>
+    <Version>4.0.1</Version>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EXCSLA.Shared.Core" Version="2.0.0" />
+    <PackageReference Include="EXCSLA.Shared.Core" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

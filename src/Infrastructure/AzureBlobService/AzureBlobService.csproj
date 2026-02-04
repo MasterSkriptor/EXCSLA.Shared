@@ -1,21 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>EXCSLA.Shared.Infrastructure.Services</RootNamespace>
     <AssemblyName>EXCSLA.Shared.Infrastructure.Services.AzureBlobService</AssemblyName>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Description>A Domain Driven shared library, containing basic components for connecting to Azure Blob Service.</Description>
-    <PackageLicenseFile></PackageLicenseFile>
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>4.0.1</Version>
+    <Version>5.1.0</Version>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="EXCSLA.Shared.Infrastructure.Services.AzureBlobServices.Abstractions" Version="4.0.1" />
+    <ProjectReference Include="..\AzureBlobService.Abstractions\AzureBlobService.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

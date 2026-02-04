@@ -1,10 +1,8 @@
 ﻿using Azure.Storage.Blobs;
-using System.Threading.Tasks;
 
-namespace EXCSLA.Shared.Infrastructure.Services.AzureBlobServices.Abstractions
+namespace EXCSLA.Shared.Infrastructure.Services.AzureBlobServices.Abstractions;
+
+public interface IAzureBlobContainerFactory
 {
-    public interface IAzureBlobContainerFactory
-    {
-        Task<BlobContainerClient> GetBlobContainer();
-    }
+    Task<BlobContainerClient> GetBlobContainer();
 }

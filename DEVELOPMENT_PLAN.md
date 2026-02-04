@@ -71,18 +71,16 @@ Created:
 
 ### Planned Infrastructure Projects
 
-#### 2.1 Core Infrastructure
-- [ ] **EntityFrameworkCore** - Base repository implementations
-  - Upgrade to .NET 10
-  - Update to EF Core 10.x
-  - Implement IAsyncRepository<T>
-  - Support for Specifications pattern
-  
-- [ ] **DomainEventDispatcher** - Event dispatching implementation
-  - Upgrade to .NET 10
-  - Replace Autofac with Microsoft.Extensions.DependencyInjection
-  - Support for async event handlers
-  - Integration with Application layer dispatcher
+#### 2.1 Core Infrastructure (REMOVED - Using Application Layer)
+
+The following projects have been **REMOVED** as the Application layer now handles event dispatching:
+- ~~DomainEventDispatcher~~ - Removed (replaced by Application layer Dispatcher)
+- ~~EntityFrameworkCore~~ - Removed (will be rebuilt in v5.1.0 if needed)
+- ~~EntityFrameworkCore.Standard~~ - Removed
+- ~~EntityFrameworkCore.Identity~~ - Removed
+- ~~EntityFrameworkCore.ApiAuthorization~~ - Removed
+
+**Note**: The Application layer's `IDispatcher` now handles command/query dispatching. Domain events can be dispatched through the same mechanism or by implementing custom handlers.
 
 #### 2.2 Cloud Services Infrastructure (Lower Priority)
 - [ ] **AzureBlobService** - Azure storage integration
@@ -97,28 +95,23 @@ Created:
   - Upgrade to .NET 10
   - Consider modernization of implementation
 
-#### 2.3 Identity & Authorization (Lower Priority)
-- [ ] **EntityFrameworkCore.Identity** - Identity integration
-  - Upgrade to .NET 10
-  - Update to latest ASP.NET Core Identity
-  
-- [ ] **EntityFrameworkCore.ApiAuthorization** - API authorization
-  - Upgrade to .NET 10
-  - Review and modernize approach
+#### 2.3 Identity & Authorization (REMOVED)
+The following projects have been **REMOVED**:
+- ~~EntityFrameworkCore.Identity~~ - Removed
+- ~~EntityFrameworkCore.ApiAuthorization~~ - Removed
+
+**Note**: These will be rebuilt from scratch in a future release if needed, following modern .NET identity patterns.
 
 ### Infrastructure Timeline
 
-**Week 1-2**: Core Infrastructure
-- EntityFrameworkCore base repository
-- DomainEventDispatcher refactoring
+**Phase 2 has been simplified**: Since EF Core and event dispatching infrastructure were removed, the focus is now on:
 
-**Week 3**: Cloud Services
+**Week 1-2**: Cloud Services Only
 - Azure Blob Service
 - SendGrid Email Service
+- Alert Service (if needed)
 
-**Week 4**: Identity & Authorization
-- EF Core Identity integration
-- API Authorization
+~~**Week 3-4**: Identity & Authorization~~ - **REMOVED**
 
 ## Phase 3: UI Components (Future) 📅
 

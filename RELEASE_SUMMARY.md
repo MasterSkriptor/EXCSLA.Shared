@@ -142,14 +142,22 @@ builder.Services.AddScoped<ICommandHandler<CreateOrderCommand, int>,
 
 ## 🔍 What's NOT in This Release
 
-To get the MVP out quickly, the following were deferred to future releases:
+To get the MVP out quickly, the following were deferred or removed:
 
-### Infrastructure Layer (Coming in v5.1.0)
-- EntityFrameworkCore repositories
-- Domain event dispatcher implementation
-- Azure Blob Service
-- SendGrid Email Service
-- Identity and Authorization
+### Infrastructure Layer (**Projects Removed**)
+The following infrastructure projects have been **REMOVED** as they are no longer needed:
+- ~~EntityFrameworkCore~~ - Removed (Application layer handles orchestration)
+- ~~EntityFrameworkCore.Standard~~ - Removed
+- ~~EntityFrameworkCore.Identity~~ - Removed  
+- ~~EntityFrameworkCore.ApiAuthorization~~ - Removed
+- ~~DomainEventDispatcher~~ - Removed (Application layer Dispatcher replaces this)
+
+**Remaining Infrastructure (Coming in v5.1.0 if needed):**
+- Azure Blob Service (upgrade to .NET 10)
+- SendGrid Email Service (upgrade to .NET 10)
+- Alert Service (upgrade to .NET 10)
+
+**Note**: Repository implementations and Identity/Authorization will be rebuilt from scratch in future releases following modern patterns, if needed by consumers.
 
 ### UI Layer (Coming in v5.2.0)
 - Blazor components
@@ -164,9 +172,16 @@ These will be upgraded and released in subsequent versions within 2-6 weeks.
 
 ## 📊 Code Changes
 
-**Files Changed**: 22  
+**Files Changed**: 40 (including 17 deletions)  
 **Lines Added**: 1,191  
-**Lines Removed**: 28  
+**Lines Removed**: 28 (plus 5 infrastructure projects removed)
+
+**Projects Removed**:
+- DomainEventDispatcher
+- EntityFrameworkCore
+- EntityFrameworkCore.Standard
+- EntityFrameworkCore.Identity
+- EntityFrameworkCore.ApiAuthorization  
 
 **Key Changes**:
 - 14 new Application layer files

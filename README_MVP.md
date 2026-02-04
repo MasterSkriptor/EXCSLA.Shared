@@ -239,12 +239,13 @@ See [MIGRATION.md](./MIGRATION.md) for detailed migration instructions.
 - Core Domain Layer (.NET 10)
 - Application Layer with Command/Query pattern
 - Simple internal dispatcher
+- Simplified architecture (removed EF Core, old event dispatcher)
 
 ### Coming Soon 🚧
-- Infrastructure projects (.NET 10)
-  - EntityFramework Core repositories
-  - Domain event dispatcher infrastructure  
+- Infrastructure projects (.NET 10) - **Simplified**
   - Cloud integrations (Azure, SendGrid)
+  - Alert services
+  - **Note**: EF Core repositories and old event dispatcher have been removed. The Application layer Dispatcher now handles all dispatching needs. Repository implementations can be added by consumers as needed.
 - UI Components (.NET 10)
   - Blazor components
 - Enhanced testing and documentation

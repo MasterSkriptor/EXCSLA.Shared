@@ -17,9 +17,5 @@ namespace EXCSLA.Shared.Core.Exceptions
         public FileNameMalformedException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected FileNameMalformedException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

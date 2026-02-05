@@ -17,9 +17,5 @@ namespace EXCSLA.Shared.Core.Exceptions
         public EmailAddressOutOfBoundsException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected EmailAddressOutOfBoundsException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

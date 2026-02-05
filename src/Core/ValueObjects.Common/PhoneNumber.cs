@@ -23,9 +23,9 @@ namespace EXCSLA.Shared.Core.ValueObjects.Common
     public class PhoneNumber : ValueObject
     {
         public PhoneType Type {get; private set;}
-        public string AreaCode {get; private set;}
-        public string Prefix {get; private set;}
-        public string Suffix {get; private set;}
+        public string? AreaCode {get; private set;}
+        public string? Prefix {get; private set;}
+        public string? Suffix {get; private set;}
 
         /// <summary>
         /// This is an entity framework required constructor, and should not be used by the programmer. Because

@@ -18,9 +18,5 @@ namespace EXCSLA.Shared.Core.Exceptions
         public MinimumLengthExceededException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected MinimumLengthExceededException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

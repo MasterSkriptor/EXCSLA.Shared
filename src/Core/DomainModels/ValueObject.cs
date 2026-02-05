@@ -14,8 +14,8 @@ namespace EXCSLA.Shared.Core
     /// </summary>
     public abstract class ValueObject : IEquatable<ValueObject>
     {
-        private List<PropertyInfo> properties;
-        private List<FieldInfo> fields;
+        private List<PropertyInfo>? properties;
+        private List<FieldInfo>? fields;
 
         public static bool operator ==(ValueObject obj1, ValueObject obj2)
         {
@@ -36,12 +36,12 @@ namespace EXCSLA.Shared.Core
             return !(obj1 == obj2);
         }
 
-        public bool Equals(ValueObject obj)
+        public bool Equals(ValueObject? obj)
         {
             return Equals(obj as object);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj == null || GetType() != obj.GetType()) return false;
 
@@ -107,7 +107,7 @@ namespace EXCSLA.Shared.Core
                 return hash;
             }
         }
-        private int HashValue(int seed, object value)
+        private int HashValue(int seed, object? value)
         {
             var currentHash = value != null
                 ? value.GetHashCode()

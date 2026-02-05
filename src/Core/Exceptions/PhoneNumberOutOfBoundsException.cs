@@ -17,9 +17,5 @@ namespace EXCSLA.Shared.Core.Exceptions
         public PhoneNumberOutOfBoundsException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected PhoneNumberOutOfBoundsException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

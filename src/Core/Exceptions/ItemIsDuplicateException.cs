@@ -19,9 +19,5 @@ namespace EXCSLA.Shared.Core.Exceptions
         public ItemIsDuplicateException(string message, Exception innerException) : base(message, innerException)
         {
         }
-
-        protected ItemIsDuplicateException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
     }
 }

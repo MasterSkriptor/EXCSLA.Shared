@@ -10,7 +10,7 @@ namespace EXCSLA.Shared.Core
     {
         public virtual int Id { get; set; }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             var other = obj as BaseEntity;
 

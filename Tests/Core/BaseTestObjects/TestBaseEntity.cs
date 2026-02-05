@@ -40,7 +40,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects
             return this.FirstName + " " + this.LastName;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             var other = obj as TestGuidBaseEntity;
 

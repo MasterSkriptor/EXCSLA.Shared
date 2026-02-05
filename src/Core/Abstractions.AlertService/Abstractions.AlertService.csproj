@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ValueObjects.Common\ValueObjects.Common.csproj" />
+    <ProjectReference Include="../ValueObjects/ValueObjects.csproj" />
   </ItemGroup>
 
 </Project>

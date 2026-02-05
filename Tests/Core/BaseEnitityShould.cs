@@ -1,6 +1,8 @@
 using Xunit;
 using EXCSLA.Shared.Tests.Core.UnitTests.Builders;
+using EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects;
 using System;
+using System.Collections.Generic;
 
 namespace EXCSLA.Shared.Tests.Core.UnitTests
 {
@@ -109,7 +111,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var entity1 = BaseEntityBuilder.GetDefaultTestBaseEntity();
             var entity2 = new BaseEntityBuilder(BaseEntityBuilder.DEFAULT_ID, "Different", "Name").Build();
 
-            var hashSet = new HashSet<BaseEntityBuilder.TestBaseEntity> { entity1, entity2 };
+            var hashSet = new HashSet<TestIntBaseEntity> { entity1, entity2 };
 
             Assert.Single(hashSet);
         }

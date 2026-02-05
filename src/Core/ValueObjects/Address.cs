@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EXCSLA.Shared.Core.ValueObjects.Common;
+namespace EXCSLA.Shared.Core.ValueObjects;
 
 /// <summary>
 /// The Address value object is designed to be a standard US based street address. Because this is a 

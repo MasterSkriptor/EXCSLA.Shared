@@ -2,18 +2,7 @@ using EXCSLA.Shared;
 using EXCSLA.Shared.Core.Exceptions;
 using System.Linq;
 
-namespace EXCSLA.Shared.Core.ValueObjects.Common;
-
-/// <summary>
-/// Phone Type is an enum used to describe the type of phone number in use. Home, Mobile, Work, Fax, etc.
-/// </summary>
-public enum PhoneType
-{
-    Home = 0,
-    Mobile = 1,
-    Work = 2,
-    Fax = 3
-}
+namespace EXCSLA.Shared.Core.ValueObjects;
 
 /// <summary>
 /// A standard US based phone number. Because this is a 

@@ -109,7 +109,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             };
 
             Assert.Equal(3, aggregates.Length);
-            Assert.Single(aggregates.Where(a => a.Id == 2));
+            Assert.Single(aggregates, a => a.Id == 2);
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var @event = aggregateRoot.Events.First();
 
             Assert.NotNull(@event);
-            Assert.NotEqual(default, @event.CreatedDate);
+            Assert.NotEqual(default, @event.DateOccured);
         }
     }
 }

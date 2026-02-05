@@ -8,7 +8,8 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects
 
         public TestBaseDomainEvent(TestAggregateRoot testAggregateRoot)
         {
-            UpdatedTestAggregateRoot = testAggregateRoot;
+            // Create a snapshot of the aggregate state at event creation time
+            UpdatedTestAggregateRoot = new TestAggregateRoot(testAggregateRoot.Id, testAggregateRoot.FirstName, testAggregateRoot.LastName);
         }
         
     }

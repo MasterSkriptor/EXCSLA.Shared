@@ -2,7 +2,7 @@ using EXCSLA.Shared;
 using Ardalis.GuardClauses;
 using System;
 
-namespace EXCSLA.Shared.Core.ValueObjects.Common;
+namespace EXCSLA.Shared.Core.ValueObjects;
 
 /// <summary>
 /// FullName is a standard human name value object

@@ -1,6 +1,5 @@
 using Xunit;
 using EXCSLA.Shared.Core.ValueObjects;
-using EXCSLA.Shared.Core.ValueObjects.Common;
 using EXCSLA.Shared.Core.Exceptions;
 
 namespace EXCSLA.Shared.Tests.Core.UnitTests

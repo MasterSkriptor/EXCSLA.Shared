@@ -1,6 +1,7 @@
 using Xunit;
 using EXCSLA.Shared.Core.Exceptions;
 using System;
+using System.Threading.Tasks;
 
 namespace EXCSLA.Shared.Tests.Core.UnitTests
 {
@@ -11,103 +12,79 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
     public class CoreExceptionsShould
     {
         [Fact]
-        public void MaximumLengthExceededException_CanBeThrown_WithoutMessage()
+        public async Task MaximumLengthExceededException_CanBeThrown_WithoutMessage()
         {
-            Assert.Throws<MaximumLengthExceededException>(() =>
-            {
-                throw new MaximumLengthExceededException();
-            });
+            await Assert.ThrowsAsync<MaximumLengthExceededException>(() => throw new MaximumLengthExceededException());
         }
 
         [Fact]
-        public void MaximumLengthExceededException_CanBeThrown_WithMessage()
+        public async Task MaximumLengthExceededException_CanBeThrown_WithMessage()
         {
             var message = "Maximum length of 50 characters exceeded";
             
-            var exception = Assert.Throws<MaximumLengthExceededException>(() =>
-            {
-                throw new MaximumLengthExceededException(message);
-            });
+            var exception = await Assert.ThrowsAsync<MaximumLengthExceededException>(() => throw new MaximumLengthExceededException(message));
 
             Assert.Equal(message, exception.Message);
         }
 
         [Fact]
-        public void MaximumLengthExceededException_CanBeThrown_WithInnerException()
+        public async Task MaximumLengthExceededException_CanBeThrown_WithInnerException()
         {
             var innerException = new ArgumentException("Inner error");
             var message = "Maximum length exceeded";
 
-            var exception = Assert.Throws<MaximumLengthExceededException>(() =>
-            {
-                throw new MaximumLengthExceededException(message, innerException);
-            });
+            var exception = await Assert.ThrowsAsync<MaximumLengthExceededException>(() => throw new MaximumLengthExceededException(message, innerException));
 
             Assert.Equal(message, exception.Message);
             Assert.Equal(innerException, exception.InnerException);
         }
 
         [Fact]
-        public void MinimumLengthExceededException_CanBeThrown_WithMessage()
+        public async Task MinimumLengthExceededException_CanBeThrown_WithMessage()
         {
             var message = "Minimum length of 5 characters required";
 
-            var exception = Assert.Throws<MinimumLengthExceededException>(() =>
-            {
-                throw new MinimumLengthExceededException(message);
-            });
+            var exception = await Assert.ThrowsAsync<MinimumLengthExceededException>(() => throw new MinimumLengthExceededException(message));
 
             Assert.Equal(message, exception.Message);
         }
 
         [Fact]
-        public void EmailAddressOutOfBoundsException_CanBeThrown_WithMessage()
+        public async Task EmailAddressOutOfBoundsException_CanBeThrown_WithMessage()
         {
             var message = "Email address is invalid";
 
-            var exception = Assert.Throws<EmailAddressOutOfBoundsException>(() =>
-            {
-                throw new EmailAddressOutOfBoundsException(message);
-            });
+            var exception = await Assert.ThrowsAsync<EmailAddressOutOfBoundsException>(() => throw new EmailAddressOutOfBoundsException(message));
 
             Assert.Equal(message, exception.Message);
         }
 
         [Fact]
-        public void PhoneNumberOutOfBoundsException_CanBeThrown_WithMessage()
+        public async Task PhoneNumberOutOfBoundsException_CanBeThrown_WithMessage()
         {
             var message = "Phone number format is invalid";
 
-            var exception = Assert.Throws<PhoneNumberOutOfBoundsException>(() =>
-            {
-                throw new PhoneNumberOutOfBoundsException(message);
-            });
+            var exception = await Assert.ThrowsAsync<PhoneNumberOutOfBoundsException>(() => throw new PhoneNumberOutOfBoundsException(message));
 
             Assert.Equal(message, exception.Message);
         }
 
         [Fact]
-        public void FileNameMalformedException_CanBeThrown_WithMessage()
+        public async Task FileNameMalformedException_CanBeThrown_WithMessage()
         {
             var message = "File name contains invalid characters";
 
-            var exception = Assert.Throws<FileNameMalformedException>(() =>
-            {
-                throw new FileNameMalformedException(message);
-            });
+            var exception = await Assert.ThrowsAsync<FileNameMalformedException>(() => throw new FileNameMalformedException(message));
 
             Assert.Equal(message, exception.Message);
         }
 
         [Fact]
-        public void ItemIsDuplicateException_CanBeThrown_WithMessage()
+        public async Task ItemIsDuplicateException_CanBeThrown_WithMessage()
         {
             var message = "This item already exists in the collection";
 
-            var exception = Assert.Throws<ItemIsDuplicateException>(() =>
-            {
-                throw new ItemIsDuplicateException(message);
-            });
+            var exception = await Assert.ThrowsAsync<ItemIsDuplicateException>(() => throw new ItemIsDuplicateException(message));
 
             Assert.Equal(message, exception.Message);
         }
@@ -163,7 +140,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             }
             catch
             {
-                Assert.True(false, "Wrong exception type caught");
+                Assert.Fail("Wrong exception type caught");
             }
         }
 

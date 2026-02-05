@@ -1,4 +1,4 @@
-﻿using EXCSLA.Shared.Core.ValueObjects.Common;
+﻿using EXCSLA.Shared.Core.ValueObjects;
 using System.Collections.Generic;
 
 namespace EXCSLA.Shared.Core.Interfaces;

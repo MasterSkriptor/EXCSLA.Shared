@@ -1,4 +1,4 @@
-using EXCSLA.Shared.Core.ValueObjects.Common;
+using EXCSLA.Shared.Core.ValueObjects;
 using EXCSLA.Shared.Tests.Core.Factories;
 using Xunit;
 

@@ -1,16 +1,4 @@
-﻿namespace EXCSLA.Shared.Core.ValueObjects.Common;
-
-public enum AlertType
-{
-    Primary,
-    Secondary,
-    Success,
-    Danger,
-    Warning,
-    Info,
-    Light,
-    Dark
-}
+﻿namespace EXCSLA.Shared.Core.ValueObjects;
 
 public class Alert : ValueObject
 {

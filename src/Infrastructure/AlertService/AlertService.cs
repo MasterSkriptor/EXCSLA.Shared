@@ -1,5 +1,5 @@
 ﻿using EXCSLA.Shared.Core.Interfaces;
-using EXCSLA.Shared.Core.ValueObjects.Common;
+using EXCSLA.Shared.Core.ValueObjects;
 
 namespace EXCSLA.Shared.Infrastructure.Services;
 

@@ -3,12 +3,12 @@ using Ardalis.GuardClauses;
 using EXCSLA.Shared.Core;
 using EXCSLA.Shared.Core.Exceptions;
 
-namespace MT.Core.ValueObjects;
+namespace EXCSLA.Shared.Core.ValueObjects;
 
 public class FileName : ValueObject
 {
-    public string Name {get; private set;}
-    public string Extension {get; private set;}
+    public string Name {get; private set;} = string.Empty;
+    public string Extension {get; private set;} = string.Empty;
     public string Path { get; private set; }
 
     public FileName() { } // Required by EF
@@ -56,7 +56,7 @@ public class FileName : ValueObject
 
     public override string ToString()
     {
-        return this.Path + this.Name + "." + this.Extension;
+        return this.Name + "." + this.Extension;
     }
 
     public string GetFileName()

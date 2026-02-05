@@ -6,7 +6,7 @@ namespace EXCSLA.Shared.Core.Exceptions;
 [Serializable]
 public class EmailAddressOutOfBoundsException : Exception
 {
-    public EmailAddressOutOfBoundsException()
+    public EmailAddressOutOfBoundsException() : base()
     {
     }
 

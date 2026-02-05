@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -14,13 +14,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Application\EXCSLA.Shared.Application.csproj" />
-    <ProjectReference Include="..\..\src\Core\DomainModels\DomainModels.csproj" />
-    <ProjectReference Include="..\..\src\Core\Abstractions\Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Core\ValueObjects\ValueObjects.csproj" />
   </ItemGroup>
 
 </Project>

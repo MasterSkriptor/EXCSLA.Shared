@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using EXCSLA.Shared.Core.Exceptions;
 
-namespace EXCSLA.Shared.Core.ValueObjects.Common;
+namespace EXCSLA.Shared.Core.ValueObjects;
 
 /// <summary>
 /// A standard email address value object. Because this is a 

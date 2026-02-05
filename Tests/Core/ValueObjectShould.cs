@@ -1,5 +1,7 @@
 using Xunit;
 using EXCSLA.Shared.Tests.Core.UnitTests.Builders;
+using EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects;
+using System.Collections.Generic;
 
 namespace EXCSLA.Shared.Tests.Core.UnitTests
 {
@@ -81,7 +83,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var vo2 = new ValueObjectBaseBuilder("John", "Doe").Build();
             var vo3 = new ValueObjectBaseBuilder("Jane", "Smith").Build();
 
-            var dict = new Dictionary<ValueObjectBaseBuilder.TestValueObject, string>
+            var dict = new Dictionary<TestValueObject, string>
             {
                 { vo1, "First" },
                 { vo3, "Third" }
@@ -99,7 +101,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var vo2 = new ValueObjectBaseBuilder("John", "Doe").Build();
             var vo3 = new ValueObjectBaseBuilder("Jane", "Smith").Build();
 
-            var set = new HashSet<ValueObjectBaseBuilder.TestValueObject> { vo1, vo2, vo3 };
+            var set = new HashSet<TestValueObject> { vo1, vo2, vo3 };
 
             // vo1 and vo2 have same value, so only 2 items in set
             Assert.Equal(2, set.Count);

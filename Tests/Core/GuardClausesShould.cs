@@ -2,8 +2,10 @@ using Xunit;
 using Ardalis.GuardClauses;
 using EXCSLA.Shared.Core.Exceptions;
 using EXCSLA.Shared.Tests.Core.UnitTests.Builders;
+using EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects;
 using System;
 using System.Collections.Generic;
+using EXCSLA.Shared.Core;
 
 namespace EXCSLA.Shared.Tests.Core.UnitTests
 {
@@ -19,7 +21,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var validString = "Hello";
 
             // Should not throw
-            Guard.MinLengthGuard(validString, 3);
+            Guard.Against.MinLengthGuard(validString, 3);
         }
 
         [Fact]
@@ -29,7 +31,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             Assert.Throws<MinimumLengthExceededException>(() =>
             {
-                Guard.MinLengthGuard(shortString, 5);
+                Guard.Against.MinLengthGuard(shortString, 5);
             });
         }
 
@@ -41,7 +43,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             var exception = Assert.Throws<MinimumLengthExceededException>(() =>
             {
-                Guard.MinLengthGuard(shortString, minLength);
+                Guard.Against.MinLengthGuard(shortString, minLength);
             });
 
             Assert.Contains(minLength.ToString(), exception.Message);
@@ -53,7 +55,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var validString = "Hello";
 
             // Should not throw
-            Guard.MaxLengthGuard(validString, 10);
+            Guard.Against.MaxLengthGuard(validString, 10);
         }
 
         [Fact]
@@ -63,7 +65,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             Assert.Throws<MaximumLengthExceededException>(() =>
             {
-                Guard.MaxLengthGuard(longString, 10);
+                Guard.Against.MaxLengthGuard(longString, 10);
             });
         }
 
@@ -75,7 +77,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             var exception = Assert.Throws<MaximumLengthExceededException>(() =>
             {
-                Guard.MaxLengthGuard(longString, maxLength);
+                Guard.Against.MaxLengthGuard(longString, maxLength);
             });
 
             Assert.Contains(maxLength.ToString(), exception.Message);
@@ -87,7 +89,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var validString = "Hello";
 
             // Should not throw
-            Guard.MinMaxLengthGuard(validString, 3, 10);
+            Guard.Against.MinMaxLengthGuard(validString, 3, 10);
         }
 
         [Fact]
@@ -97,7 +99,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             Assert.Throws<MinimumLengthExceededException>(() =>
             {
-                Guard.MinMaxLengthGuard(shortString, 5, 20);
+                Guard.Against.MinMaxLengthGuard(shortString, 5, 20);
             });
         }
 
@@ -108,7 +110,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             Assert.Throws<MaximumLengthExceededException>(() =>
             {
-                Guard.MinMaxLengthGuard(longString, 5, 20);
+                Guard.Against.MinMaxLengthGuard(longString, 5, 20);
             });
         }
 
@@ -118,7 +120,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var boundaryString = "12345"; // Exactly min length
 
             // Should not throw
-            Guard.MinMaxLengthGuard(boundaryString, 5, 10);
+            Guard.Against.MinMaxLengthGuard(boundaryString, 5, 10);
         }
 
         [Fact]
@@ -127,7 +129,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var boundaryString = "1234567890"; // Exactly max length
 
             // Should not throw
-            Guard.MinMaxLengthGuard(boundaryString, 5, 10);
+            Guard.Against.MinMaxLengthGuard(boundaryString, 5, 10);
         }
 
         [Fact]
@@ -135,10 +137,10 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         {
             var entity1 = new BaseEntityBuilder(1, "John", "Doe").Build();
             var entity2 = new BaseEntityBuilder(2, "Jane", "Doe").Build();
-            var list = new List<BaseEntityBuilder.TestBaseEntity> { entity1 };
+            var list = new List<BaseEntity> { entity1 };
 
             // Should not throw
-            Guard.DuplicateInList(entity2, list);
+            Guard.Against.DuplicateInList(entity2, list);
         }
 
         [Fact]
@@ -146,11 +148,11 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         {
             var entity1 = new BaseEntityBuilder(1, "John", "Doe").Build();
             var entity2 = new BaseEntityBuilder(1, "John", "Doe").Build(); // Same ID
-            var list = new List<BaseEntityBuilder.TestBaseEntity> { entity1 };
+            var list = new List<BaseEntity> { entity1 };
 
             Assert.Throws<ItemIsDuplicateException>(() =>
             {
-                Guard.DuplicateInList(entity2, list);
+                Guard.Against.DuplicateInList(entity2, list);
             });
         }
 
@@ -163,11 +165,11 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var entity4 = new BaseEntityBuilder(4, "Alice", "Johnson").Build();
             var entity5 = new BaseEntityBuilder(2, "Different", "Name").Build(); // ID 2 duplicate
 
-            var list = new List<BaseEntityBuilder.TestBaseEntity> { entity1, entity2, entity3, entity4 };
+            var list = new List<BaseEntity> { entity1, entity2, entity3, entity4 };
 
             Assert.Throws<ItemIsDuplicateException>(() =>
             {
-                Guard.DuplicateInList(entity5, list);
+                Guard.Against.DuplicateInList(entity5, list);
             });
         }
 
@@ -175,10 +177,10 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         public void DuplicateInListGuard_EmptyList_NeverThrows()
         {
             var entity = new BaseEntityBuilder(1, "Test", "User").Build();
-            var emptyList = new List<BaseEntityBuilder.TestBaseEntity>();
+            var emptyList = new List<BaseEntity>();
 
             // Should not throw
-            Guard.DuplicateInList(entity, emptyList);
+            Guard.Against.DuplicateInList(entity, emptyList);
         }
 
         [Fact]
@@ -186,7 +188,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         {
             Assert.Throws<MinimumLengthExceededException>(() =>
             {
-                Guard.MinLengthGuard("", 1);
+                Guard.Against.MinLengthGuard("", 1);
             });
         }
 
@@ -194,7 +196,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         public void GuardClause_MaxLength_EmptyString_DoesNotThrow()
         {
             // Should not throw for empty string with max length >= 0
-            Guard.MaxLengthGuard("", 1);
+            Guard.Against.MaxLengthGuard("", 1);
         }
 
         [Fact]
@@ -203,9 +205,9 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var validString = "ValidString";
 
             // Should not throw
-            Guard.MinLengthGuard(validString, 5);
-            Guard.MaxLengthGuard(validString, 50);
-            Guard.MinMaxLengthGuard(validString, 5, 50);
+            Guard.Against.MinLengthGuard(validString, 5);
+            Guard.Against.MaxLengthGuard(validString, 50);
+            Guard.Against.MinMaxLengthGuard(validString, 5, 50);
         }
 
         [Fact]
@@ -216,7 +218,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             // Only MinimumLengthExceededException should be thrown, not both
             Assert.Throws<MinimumLengthExceededException>(() =>
             {
-                Guard.MinMaxLengthGuard(shortString, 5, 20);
+                Guard.Against.MinMaxLengthGuard(shortString, 5, 20);
             });
         }
     }

@@ -12,16 +12,16 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
     public class BaseDomainEventShould
     {
         [Fact]
-        public void BaseDomainEvent_HasCreatedDate_OnInstantiation()
+        public void BaseDomainEvent_HasDateOccured_OnInstantiation()
         {
             var aggregateRoot = new TestAggregateRoot(1, "Test", "User");
             var domainEvent = new TestBaseDomainEvent(aggregateRoot);
 
-            Assert.NotEqual(default, domainEvent.CreatedDate);
+            Assert.NotEqual(default, domainEvent.DateOccured);
         }
 
         [Fact]
-        public void BaseDomainEvent_CreatedDate_IsRecent()
+        public void BaseDomainEvent_DateOccured_IsRecent()
         {
             var aggregateRoot = new TestAggregateRoot(1, "Test", "User");
             var beforeCreation = System.DateTime.UtcNow;
@@ -30,7 +30,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             
             var afterCreation = System.DateTime.UtcNow;
 
-            Assert.InRange(domainEvent.CreatedDate, beforeCreation, afterCreation.AddSeconds(1));
+            Assert.InRange(domainEvent.DateOccured, beforeCreation, afterCreation.AddSeconds(1));
         }
 
         [Fact]
@@ -46,53 +46,51 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         }
 
         [Fact]
-        public void AggregateRoot_AddDomainEvent_AddsEventToCollection()
+        public void AggregateRoot_UpdateName_AddsEventToCollection()
         {
             var aggregateRoot = new TestAggregateRoot(1, "Test", "User");
             
             Assert.Empty(aggregateRoot.Events);
 
-            var domainEvent = new TestBaseDomainEvent(aggregateRoot);
-            aggregateRoot.AddDomainEvent(domainEvent);
+            aggregateRoot.UpdateName("Updated", "Name");
 
             Assert.Single(aggregateRoot.Events);
-            Assert.Equal(domainEvent, aggregateRoot.Events.First());
         }
 
         [Fact]
-        public void AggregateRoot_AddDomainEvent_MultipleEvents_PreservesOrder()
+        public void AggregateRoot_UpdateName_MultipleEvents_PreservesOrder()
         {
             var aggregateRoot = new TestAggregateRoot(1, "Test", "User");
             
-            var event1 = new TestBaseDomainEvent(aggregateRoot);
+            var beforeEvent1 = System.DateTime.UtcNow;
+            aggregateRoot.UpdateName("First", "Update");
             System.Threading.Thread.Sleep(10); // Ensure different timestamps
-            var event2 = new TestBaseDomainEvent(aggregateRoot);
+            
+            var beforeEvent2 = System.DateTime.UtcNow;
+            aggregateRoot.UpdateName("Second", "Update");
             System.Threading.Thread.Sleep(10);
-            var event3 = new TestBaseDomainEvent(aggregateRoot);
-
-            aggregateRoot.AddDomainEvent(event1);
-            aggregateRoot.AddDomainEvent(event2);
-            aggregateRoot.AddDomainEvent(event3);
+            
+            var beforeEvent3 = System.DateTime.UtcNow;
+            aggregateRoot.UpdateName("Third", "Update");
 
             var events = aggregateRoot.Events.ToList();
             Assert.Equal(3, events.Count);
-            Assert.Equal(event1.CreatedDate, events[0].CreatedDate);
-            Assert.Equal(event2.CreatedDate, events[1].CreatedDate);
-            Assert.Equal(event3.CreatedDate, events[2].CreatedDate);
+            Assert.InRange(events[0].DateOccured, beforeEvent1, beforeEvent2.AddSeconds(1));
+            Assert.InRange(events[1].DateOccured, beforeEvent2, beforeEvent3.AddSeconds(1));
         }
 
         [Fact]
-        public void AggregateRoot_ClearDomainEvents_RemovesAllEvents()
+        public void AggregateRoot_ClearEvents_RemovesAllEvents()
         {
             var aggregateRoot = new TestAggregateRoot(1, "Test", "User");
             
-            aggregateRoot.AddDomainEvent(new TestBaseDomainEvent(aggregateRoot));
-            aggregateRoot.AddDomainEvent(new TestBaseDomainEvent(aggregateRoot));
-            aggregateRoot.AddDomainEvent(new TestBaseDomainEvent(aggregateRoot));
+            aggregateRoot.UpdateName("First", "Update");
+            aggregateRoot.UpdateName("Second", "Update");
+            aggregateRoot.UpdateName("Third", "Update");
 
             Assert.Equal(3, aggregateRoot.Events.Count());
 
-            aggregateRoot.ClearDomainEvents();
+            aggregateRoot.ClearEvents();
 
             Assert.Empty(aggregateRoot.Events);
         }
@@ -102,8 +100,8 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         {
             var aggregateRoot = new TestAggregateRoot(1, "Test", "User");
             
-            aggregateRoot.AddDomainEvent(new TestBaseDomainEvent(aggregateRoot));
-            aggregateRoot.AddDomainEvent(new TestBaseDomainEvent(aggregateRoot));
+            aggregateRoot.UpdateName("Test1", "User1");
+            aggregateRoot.UpdateName("Test2", "User2");
 
             // First iteration
             var firstCount = aggregateRoot.Events.Count();

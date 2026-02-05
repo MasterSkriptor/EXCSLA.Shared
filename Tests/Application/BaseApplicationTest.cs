@@ -1,4 +1,5 @@
 using EXCSLA.Shared.Application;
+using EXCSLA.Shared.Application.Tests.Fixtures;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EXCSLA.Shared.Application.Tests;
@@ -26,8 +27,10 @@ public abstract class BaseApplicationTest : IDisposable
     /// </summary>
     protected virtual void ConfigureServices(IServiceCollection services)
     {
-        // Default configuration - override in derived classes for custom setup
+        // Default configuration - add dispatcher and test handlers
         services.AddDispatcher();
+        services.AddTransient<ICommandHandler<TestCommand>, TestCommandHandler>();
+        services.AddTransient<IQueryHandler<TestQuery, TestQueryResult>, TestQueryHandler>();
     }
 
     /// <summary>

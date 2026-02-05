@@ -62,7 +62,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         }
 
         [Fact]
-        public void AggregateRoot_ClearDomainEvents_RemovesAllEvents()
+        public void AggregateRoot_ClearEvents_RemovesAllEvents()
         {
             var aggregateRoot = AggregateRootBuilder.GetDefaultTestAggregateRoot();
             
@@ -71,7 +71,7 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             Assert.Equal(2, aggregateRoot.Events.Count());
 
-            aggregateRoot.ClearDomainEvents();
+            aggregateRoot.ClearEvents();
 
             Assert.Empty(aggregateRoot.Events);
         }

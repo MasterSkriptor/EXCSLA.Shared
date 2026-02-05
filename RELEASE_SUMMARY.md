@@ -233,7 +233,25 @@ These will be upgraded and released in subsequent versions within 2-6 weeks.
 
 ---
 
-## 🚀 Deployment Instructions
+## 🚀 Phase 3 Status: UI Components Deferred
+
+The Blazor UI components have been **removed from this release** and deferred to v5.2.0 (4-6 weeks). This decision was made to:
+1. Focus on getting Domain and Application layers to production faster
+2. Allow time to resolve modern Blazor/BlazorStrap integration complexities with .NET 10
+3. Maintain clean build with zero errors during MVP phase
+
+**Removed UI Projects**:
+- EXCSLA.Shared.UI.Blazor.Client.AlertService
+- EXCSLA.Shared.UI.Blazor.Client.HttpApiClient
+- EXCSLA.Shared.UI.Blazor.Client.ServerSideValidator
+- EXCSLA.Shared.UI.Blazor.DataTable
+- EXCSLA.Shared.UI.Blazor.LoadingSpinner
+- EXCSLA.Shared.UI.Blazor.Markdown
+- EXCSLA.Shared.UI.Blazor.Modal
+
+**Coming in v5.2.0**: These components will be released as updated Blazor components for .NET 10 with proper dependency management.
+
+---
 
 ### Step 1: Verify Packages
 

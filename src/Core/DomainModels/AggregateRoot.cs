@@ -1,30 +1,29 @@
 using System.Collections.Generic;
 
-namespace EXCSLA.Shared.Core
+namespace EXCSLA.Shared.Core;
+
+/// <summary>
+/// Base class for DDD Aggregates. This class bakes domain events into the base entity.
+/// </summary>
+public abstract class AggregateRoot : BaseEntity
 {
+    private readonly List<BaseDomainEvent> _events = new List<BaseDomainEvent>();
+    public virtual IReadOnlyList<BaseDomainEvent> Events => _events;
+
     /// <summary>
-    /// Base class for DDD Aggregates. This class bakes domain events into the base entity.
+    /// Add new domain event from inside inherited class.
     /// </summary>
-    public abstract class AggregateRoot : BaseEntity
+    /// <param name="newEvent">The domain event to add to the list of events.</param>
+    protected virtual void AddDomainEvent(BaseDomainEvent newEvent)
     {
-        private readonly List<BaseDomainEvent> _events = new List<BaseDomainEvent>();
-        public virtual IReadOnlyList<BaseDomainEvent> Events => _events;
+        _events.Add(newEvent);
+    }
 
-        /// <summary>
-        /// Add new domain event from inside inherited class.
-        /// </summary>
-        /// <param name="newEvent">The domain event to add to the list of events.</param>
-        protected virtual void AddDomainEvent(BaseDomainEvent newEvent)
-        {
-            _events.Add(newEvent);
-        }
-
-        /// <summary>
-        /// Clears all domain events from the aggregate.
-        /// </summary>
-        public virtual void ClearEvents()
-        {
-            _events.Clear();
-        }
+    /// <summary>
+    /// Clears all domain events from the aggregate.
+    /// </summary>
+    public virtual void ClearEvents()
+    {
+        _events.Clear();
     }
 }

@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <PackageId>EXCSLA.Shared.Core.Exceptions</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>5.0.0</Version>
+    <Version>5.1.0</Version>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>H.E. Collins</Authors>

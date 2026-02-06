@@ -28,10 +28,9 @@ Phase 3 involved analyzing the feasibility of migrating 7 Blazor UI components t
 
 ### Solution Now Contains (13 Projects)
 
-**Core Domain Layer (9 projects)** ✅
+**Core Domain Layer (8 projects)** ✅
 - EXCSLA.Shared.Core
 - EXCSLA.Shared.Core.Abstractions
-- EXCSLA.Shared.Core.Abstractions.AlertService
 - EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher
 - EXCSLA.Shared.Core.Exceptions
 - EXCSLA.Shared.Core.GuardClauses
@@ -41,8 +40,7 @@ Phase 3 involved analyzing the feasibility of migrating 7 Blazor UI components t
 **Application Layer (1 project)** ✅
 - EXCSLA.Shared.Application
 
-**Infrastructure Layer (4 projects)** ✅
-- EXCSLA.Shared.Infrastructure.AlertService
+**Infrastructure Layer (2 projects)** ✅
 - EXCSLA.Shared.Infrastructure.AzureBlobService
 - EXCSLA.Shared.Infrastructure.AzureBlobService.Abstractions
 - EXCSLA.Shared.Infrastructure.SendGridEmailService

@@ -268,7 +268,6 @@ EXCSLA.Shared.[Layer].[SubLayer].[Service]
 
 ### Examples
 ✅ EXCSLA.Shared.Core.Abstractions
-✅ EXCSLA.Shared.Infrastructure.AlertService
 ✅ EXCSLA.Shared.Infrastructure.Services.AzureBlobService (acceptable variant)
 ```
 
@@ -307,7 +306,6 @@ Build succeeded in 7.3s (Full solution on remote base)
 ```
 
 ### Individual Infrastructure Projects
-- ✅ AlertService: Migrated to .NET 10, v5.1.0
 - ✅ AzureBlobService.Abstractions: Migrated to .NET 10, v5.1.0, Azure SDK 12.20.0
 - ✅ AzureBlobService: Migrated to .NET 10, v5.1.0, ProjectReference to Abstractions
 - ✅ SendGridEmailService: Migrated to .NET 10, v5.1.0, SendGrid 9.28.1

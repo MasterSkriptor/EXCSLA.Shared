@@ -13,7 +13,7 @@ The EXCSLA.Shared DDD Framework has been successfully modernized and restructure
 
 ## 📦 What's Released - 9 NuGet Packages
 
-### Core Domain Layer (8 Packages)
+### Core Domain Layer (7 Packages)
 
 | Package | Description | Size |
 |---------|-------------|------|
@@ -23,7 +23,6 @@ The EXCSLA.Shared DDD Framework has been successfully modernized and restructure
 | **EXCSLA.Shared.Core.Exceptions** | Custom domain exceptions | 4.6 KB |
 | **EXCSLA.Shared.Core.GuardClauses** | Input validation extensions | 5.3 KB |
 | **EXCSLA.Shared.Core.ValueObjects.Common** | Common value objects | 8.9 KB |
-| **EXCSLA.Shared.Core.Abstractions.AlertService** | Alert service interfaces | 4.5 KB |
 | **EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher** | Domain event interfaces | 4.0 KB |
 
 ### Application Layer (1 Package)
@@ -32,7 +31,7 @@ The EXCSLA.Shared DDD Framework has been successfully modernized and restructure
 |---------|-------------|------|
 | **EXCSLA.Shared.Application** | Command/Query/Handler patterns with internal dispatcher | 7.2 KB |
 
-**Total**: 9 packages, 64.2 KB
+**Total**: 8 packages, 59.7 KB
 
 ---
 

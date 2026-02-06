@@ -21,7 +21,6 @@ Version 5.0 is a major release focusing on modernization and simplicity:
 - **EXCSLA.Shared.Core.Exceptions** - Custom domain exceptions
 - **EXCSLA.Shared.Core.GuardClauses** - Input validation extensions
 - **EXCSLA.Shared.Core.ValueObjects.Common** - Common value objects (Email, Phone, Address, etc.)
-- **EXCSLA.Shared.Core.Abstractions.AlertService** - Alert service interfaces
 - **EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher** - Domain event interfaces
 
 ### Application Layer

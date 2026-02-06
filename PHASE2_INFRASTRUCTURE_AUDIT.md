@@ -16,11 +16,12 @@ Phase 2 focuses on upgrading and modernizing the Infrastructure Layer services. 
 - ✅ External dependencies are modern versions
 - ⚠️ Limited XML documentation
 - ⚠️ No infrastructure layer tests
-- ⚠️ Some implementation patterns could be modernized
 
 ---
 
 ## Infrastructure Projects Inventory
+
+Phase 2 focuses on **2 cloud services** that will remain in the infrastructure layer:
 
 ### 1. Azure Blob Service (`src/Infrastructure/AzureBlobService`)
 
@@ -120,59 +121,6 @@ public async Task SendEmailAsync(string email, string subject, string message, s
 
 ---
 
-### 3. Alert Service (`src/Infrastructure/AlertService`)
-
-#### Project Files
-- **AlertService.csproj**
-
-#### Target Framework
-- ✅ **net10.0** (already upgraded)
-
-#### Dependencies
-| Package | Version | Status | Latest | Action |
-|---------|---------|--------|--------|--------|
-| _(none - only internal references)_ | - | ✅ None | - | N/A |
-
-#### Key Components
-- `IAlertService` - Inherited from Core.Abstractions.AlertService
-- `AlertService` - In-memory alert accumulator
-- `Alert` - Value object (from Core.ValueObjects)
-- `AlertType` - Enum
-
-#### Current Implementation
-```csharp
-// Simple in-memory alert accumulation
-public void AddAlert(string message, AlertType alertType = AlertType.Info)
-public IReadOnlyList<Alert> ShowAlerts()  // Returns and clears alerts
-```
-
-#### Status
-- ✅ Framework updated to net10.0
-- ✅ No external dependencies (lightweight)
-- ✅ ImplicitUsings enabled
-- ✅ Nullable reference types enabled
-- ⚠️ No XML documentation
-- ⚠️ No unit tests
-- 🔴 Implementation is very basic - needs modernization
-  - In-memory only (no persistence)
-  - No async pattern
-  - Limited alert context (just message + type)
-
-#### Current Limitations
-- Only supports in-memory storage (lost on app restart)
-- No timestamp, source, or additional context
-- ShowAlerts() clears the list (destructive operation)
-- Not suitable for production alert logging/persistence
-
-#### Action Items
-- [ ] Add XML documentation
-- [ ] Create unit tests for AlertService
-- [ ] Consider async patterns (Future: Message Queue integration)
-- [ ] Document current limitations
-- [ ] Consider future persistence options (logging, database, message queue)
-
----
-
 ## Abstractions Reference
 
 ### AzureBlobService.Abstractions
@@ -219,17 +167,13 @@ public interface IAzureBlobService
    - No mock implementations
    - No integration test examples
 
-3. **AlertService Modernization**:
-   - In-memory only implementation
-   - Limited extensibility
-   - No production-ready persistence
 
 ---
 
 ## Phase 2 Milestones Plan
 
 ### Milestone 1: Planning & Setup (Current - Today)
-- ✅ Audit infrastructure projects
+- ✅ Audit infrastructure projects (2 services)
 - ✅ Identify dependencies and versions
 - ✅ Document current state and gaps
 - ⏳ Create Phase 2 action plan
@@ -243,8 +187,8 @@ public interface IAzureBlobService
 3. Create integration test examples (with Azure emulator)
 4. Document configuration and usage
 
-### Milestone 3: SendGridEmailService Enhancement
-1. Add XML documentation
+### Milestone 3: SendGridEmailService Enhancement (Next)
+1. Add comprehensive XML documentation
 2. Create unit tests:
    - Mock SendGrid client tests
    - Email validation scenarios
@@ -252,20 +196,13 @@ public interface IAzureBlobService
 3. Create integration test examples
 4. Document API key configuration
 
-### Milestone 4: Alert Service Modernization
-1. Add XML documentation
-2. Create unit tests
-3. Design enhanced alert model (future: timestamps, context)
-4. Consider async patterns
-5. Document current limitations and future roadmap
-
-### Milestone 5: Integration & Quality Review
+### Milestone 4: Integration & Quality Review
 1. Infrastructure tests pass 100%
 2. Code coverage analysis
 3. Documentation complete
 4. Create infrastructure usage examples
 
-### Milestone 6: Infrastructure Package Release
+### Milestone 5: Infrastructure Package Release
 1. Package all infrastructure services
 2. Version updates (5.1.0 → 5.2.0)
 3. NuGet publish
@@ -287,8 +224,7 @@ Microsoft.Extensions.DependencyInjection (inherited) ✅ Current
 ```
 Core.Abstractions                       ✅ Available
 Core.GuardClauses                       ✅ Available
-Core.Abstractions.AlertService          ✅ Available
-Core.ValueObjects (for AlertType, Alert) ✅ Available
+Core.ValueObjects (Email, Address, etc.) ✅ Available
 ```
 
 All dependencies are current and compatible with .NET 10.0.
@@ -303,11 +239,9 @@ All dependencies are current and compatible with .NET 10.0.
 | M2 | Azure Blob Service Tests | Medium | 2 hours |
 | M3 | SendGrid Docs | Medium | 1 hour |
 | M3 | SendGrid Tests | Medium | 1.5 hours |
-| M4 | Alert Service Docs | Small | 0.5 hours |
-| M4 | Alert Service Tests | Small | 1 hour |
-| M5 | Integration & Review | Medium | 1 hour |
-| M6 | Package & Release | Small | 0.5 hours |
-| **Total** | | | **~9 hours** |
+| M4 | Integration & Review | Medium | 1 hour |
+| M5 | Package & Release | Small | 0.5 hours |
+| **Total** | | | **~7 hours** |
 
 ---
 
@@ -315,11 +249,10 @@ All dependencies are current and compatible with .NET 10.0.
 
 ### Immediate (Next Phase)
 1. Review this audit document
-2. Decide on AlertService modernization scope
-3. Begin Milestone 2: AzureBlobService Enhancement
+2. Begin Milestone 2: AzureBlobService Enhancement
 
 ### Suggested Approach
-1. **Parallel Work**: Can work on all three services simultaneously
+1. **Parallel Work**: Can work on both services simultaneously
 2. **Testing First**: Create tests as main deliverable
 3. **Documentation**: XML docs for all public APIs
 4. **Integration Examples**: Show real-world usage patterns

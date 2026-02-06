@@ -34,7 +34,6 @@ Packages released:
 - ✅ EXCSLA.Shared.Core.Exceptions
 - ✅ EXCSLA.Shared.Core.GuardClauses
 - ✅ EXCSLA.Shared.Core.ValueObjects.Common
-- ✅ EXCSLA.Shared.Core.Abstractions.AlertService
 - ✅ EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher
 
 Key Features:
@@ -90,10 +89,6 @@ The following projects have been **REMOVED** as the Application layer now handle
 - [ ] **SendGridEmailService** - Email service implementation
   - Upgrade to .NET 10
   - Update SendGrid SDK to latest
-
-- [ ] **AlertService** - Alert/notification service
-  - Upgrade to .NET 10
-  - Consider modernization of implementation
 
 #### 2.3 Identity & Authorization (REMOVED)
 The following projects have been **REMOVED**:
@@ -191,7 +186,7 @@ During development, an attempt was made to migrate the following UI projects to 
 
 ### Infrastructure Release (v5.1.0) ⏳ PLANNED
 **Packages**:
-- Cloud service integrations (AlertService, AzureBlobService, SendGridEmailService)
+- Cloud service integrations (AzureBlobService, SendGridEmailService)
 - EntityFrameworkCore packages (if needed)
 - DomainEventDispatcher (if needed)
 

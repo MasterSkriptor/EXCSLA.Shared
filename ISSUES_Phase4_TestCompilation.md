@@ -99,7 +99,6 @@ UpdatedTestAggregateRoot = new TestAggregateRoot(
 - Or initialize with default values in parameterless EF constructors
 
 **Affected Files**:
-- Alert.cs
 - Email.cs
 - Address.cs
 - FileName.cs

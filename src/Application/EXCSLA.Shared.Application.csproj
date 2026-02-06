@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <PackageId>EXCSLA.Shared.Application</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>5.1.0</Version>
+    <Version>5.2.0</Version>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Product>EXCSLA.Shared.Application</Product>
@@ -17,9 +17,14 @@
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
     <PackageTags>DDD; DotNet; Core; Domain Driven Design; Clean Architecture; CQRS; Application Layer; Executive Computer Systems</PackageTags>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Abstractions\Abstractions.csproj" />

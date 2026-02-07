@@ -1,5 +1,5 @@
 
-using EXCSLA.Shared.Core.ValueObjects.Common;
+using EXCSLA.Shared.Core.ValueObjects;
 
 namespace EXCSLA.Shared.Tests.Core.Factories
 {
@@ -7,7 +7,7 @@ namespace EXCSLA.Shared.Tests.Core.Factories
     {
         public static string DefaultName = "test";
         public static string DefaultExtension = "pdf";
-        private FileName _fileName;
+        private FileName? _fileName;
 
         public FileName Build(string fileName)
         {

@@ -4,24 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ardalis.GuardClauses
+namespace Ardalis.GuardClauses;
+
+public static class DuplicateInListGuard
 {
-    public static class DuplicateInListGuard
+    public static void DuplicateInList<T>(this IGuardClause guardClause, T listItem, List<T> list) where T : BaseEntity
     {
-        public static void DuplicateInList<T>(this IGuardClause guardClause, T listItem, List<T> list) where T : BaseEntity
+        bool isDuplicate = false;
+
+        foreach (var item in list)
         {
-            bool isDuplicate = false;
-
-            foreach (var item in list)
+            if (item == listItem)
             {
-                if (item == listItem)
-                {
-                    isDuplicate = true;
-                    break;
-                }
+                isDuplicate = true;
+                break;
             }
-
-            if (isDuplicate) throw new ItemIsDuplicateException();
         }
+
+        if (isDuplicate) throw new ItemIsDuplicateException();
     }
 }

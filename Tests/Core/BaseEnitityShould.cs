@@ -153,5 +153,41 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             Assert.True(entity1 != entity2);
         }
+
+        [Fact]
+        public void BaseEntity_GetHashCode_HandlesDefaultId()
+        {
+            var entity1 = new TestIntBaseEntity(0, "Test", "User");
+            var entity2 = new TestIntBaseEntity(0, "Different", "User");
+
+            Assert.Equal(entity1.GetHashCode(), entity2.GetHashCode());
+        }
+
+        [Fact]
+        public void GuidBaseEntity_GetHashCode_HandlesDefaultId()
+        {
+            var entity1 = new TestGuidBaseEntity(Guid.Empty, "Test", "User");
+            var entity2 = new TestGuidBaseEntity(Guid.Empty, "Different", "User");
+
+            Assert.Equal(entity1.GetHashCode(), entity2.GetHashCode());
+        }
+
+        [Fact]
+        public void BaseEntity_Equals_HandlesDefaultId()
+        {
+            var entity1 = new TestIntBaseEntity(0, "Test", "User");
+            var entity2 = new TestIntBaseEntity(0, "Different", "User");
+
+            Assert.Equal(entity1, entity2);
+        }
+
+        [Fact]
+        public void GuidBaseEntity_Equals_HandlesDefaultId()
+        {
+            var entity1 = new TestGuidBaseEntity(Guid.Empty, "Test", "User");
+            var entity2 = new TestGuidBaseEntity(Guid.Empty, "Different", "User");
+
+            Assert.Equal(entity1, entity2);
+        }
     }
 }

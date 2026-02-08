@@ -8,7 +8,7 @@ namespace Ardalis.GuardClauses;
 
 public static class DuplicateInListGuard
 {
-    public static void DuplicateInList<T>(this IGuardClause guardClause, T listItem, List<T> list) where T : BaseEntity
+    public static void DuplicateInList<T, TId>(this IGuardClause guardClause, T listItem, List<T> list) where T : BaseEntity<TId>
     {
         bool isDuplicate = false;
 

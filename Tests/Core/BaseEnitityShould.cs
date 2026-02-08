@@ -115,5 +115,43 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
 
             Assert.Single(hashSet);
         }
+
+        [Fact]
+        public void GuidBaseEntity_CanBeUsedInHashSet_WithoutDuplicates()
+        {
+            var entity1 = GuidBaseEntityBuilder.GetDefaultTestBaseEntity();
+            var entity2 = new GuidBaseEntityBuilder(GuidBaseEntityBuilder.DEFAULT_ID, "Different", "Name").Build();
+
+            var hashSet = new HashSet<TestGuidBaseEntity> { entity1, entity2 };
+
+            Assert.Single(hashSet);
+        }
+
+        [Fact]
+        public void GuidBaseEntity_GetHashCode_IsSame_ForEqualEntities()
+        {
+            var entity1 = GuidBaseEntityBuilder.GetDefaultTestBaseEntity();
+            var entity2 = new GuidBaseEntityBuilder(GuidBaseEntityBuilder.DEFAULT_ID, "Different", "Name").Build();
+
+            Assert.Equal(entity1.GetHashCode(), entity2.GetHashCode());
+        }
+
+        [Fact]
+        public void GuidBaseEntity_EqualityOperator_ReturnsTrue_ForEqualEntities()
+        {
+            var entity1 = GuidBaseEntityBuilder.GetDefaultTestBaseEntity();
+            var entity2 = new GuidBaseEntityBuilder(GuidBaseEntityBuilder.DEFAULT_ID, "Any", "Name").Build();
+
+            Assert.True(entity1 == entity2);
+        }
+
+        [Fact]
+        public void GuidBaseEntity_InequalityOperator_ReturnsTrue_ForDifferentEntities()
+        {
+            var entity1 = GuidBaseEntityBuilder.GetDefaultTestBaseEntity();
+            var entity2 = new GuidBaseEntityBuilder(Guid.NewGuid(), "Any", "Name").Build();
+
+            Assert.True(entity1 != entity2);
+        }
     }
 }

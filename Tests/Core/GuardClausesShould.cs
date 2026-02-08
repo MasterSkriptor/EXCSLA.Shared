@@ -137,10 +137,10 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         {
             var entity1 = new BaseEntityBuilder(1, "John", "Doe").Build();
             var entity2 = new BaseEntityBuilder(2, "Jane", "Doe").Build();
-            var list = new List<BaseEntity> { entity1 };
+            var list = new List<TestIntBaseEntity> { entity1 };
 
             // Should not throw
-            Guard.Against.DuplicateInList(entity2, list);
+            Guard.Against.DuplicateInList<TestIntBaseEntity, int>(entity2, list);
         }
 
         [Fact]
@@ -148,11 +148,11 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         {
             var entity1 = new BaseEntityBuilder(1, "John", "Doe").Build();
             var entity2 = new BaseEntityBuilder(1, "John", "Doe").Build(); // Same ID
-            var list = new List<BaseEntity> { entity1 };
+            var list = new List<TestIntBaseEntity> { entity1 };
 
             Assert.Throws<ItemIsDuplicateException>(() =>
             {
-                Guard.Against.DuplicateInList(entity2, list);
+                Guard.Against.DuplicateInList<TestIntBaseEntity, int>(entity2, list);
             });
         }
 
@@ -165,11 +165,11 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             var entity4 = new BaseEntityBuilder(4, "Alice", "Johnson").Build();
             var entity5 = new BaseEntityBuilder(2, "Different", "Name").Build(); // ID 2 duplicate
 
-            var list = new List<BaseEntity> { entity1, entity2, entity3, entity4 };
+            var list = new List<TestIntBaseEntity> { entity1, entity2, entity3, entity4 };
 
             Assert.Throws<ItemIsDuplicateException>(() =>
             {
-                Guard.Against.DuplicateInList(entity5, list);
+                Guard.Against.DuplicateInList<TestIntBaseEntity, int>(entity5, list);
             });
         }
 
@@ -177,10 +177,10 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
         public void DuplicateInListGuard_EmptyList_NeverThrows()
         {
             var entity = new BaseEntityBuilder(1, "Test", "User").Build();
-            var emptyList = new List<BaseEntity>();
+            var emptyList = new List<TestIntBaseEntity>();
 
             // Should not throw
-            Guard.Against.DuplicateInList(entity, emptyList);
+            Guard.Against.DuplicateInList<TestIntBaseEntity, int>(entity, emptyList);
         }
 
         [Fact]

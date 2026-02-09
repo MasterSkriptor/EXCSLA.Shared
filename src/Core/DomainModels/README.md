@@ -82,7 +82,7 @@ Supported identity types include:
 - `int` (default, backward compatible)
 - `Guid` (for distributed systems)
 - `string` (for custom identifiers)
-- Any other comparable type
+- Any other type with stable equality and hash semantics
 
 ### Repository with Generic Identity
 

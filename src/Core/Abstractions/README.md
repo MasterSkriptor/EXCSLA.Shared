@@ -117,7 +117,7 @@ This allows repositories to work with any ID type:
 - `int` (default, backward compatible)
 - `Guid` (for distributed systems)
 - `string` (for custom identifiers)
-- Any other comparable type
+- Any other type appropriate for use as an identifier
 
 ## Dependencies
 

@@ -54,4 +54,54 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests.Builders
         }
 
     }
+
+    public class StringBaseEntityBuilder
+    {
+        public static string DEFAULT_ID = "string-id-1";
+        public static string DEFAULT_FIRST_NAME = "Harold";
+        public static string DEFAULT_LAST_NAME = "Collins";
+
+        private TestStringBaseEntity _baseEntity;
+
+        public StringBaseEntityBuilder(string id, string firstName, string lastName)
+        {
+            _baseEntity = new TestStringBaseEntity(id, firstName, lastName);
+        }
+
+        public TestStringBaseEntity Build()
+        {
+            return _baseEntity;
+        }
+
+        public static TestStringBaseEntity GetDefaultTestBaseEntity()
+        {
+            var tvo = new StringBaseEntityBuilder(DEFAULT_ID, DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME);
+            return tvo.Build();
+        }
+    }
+
+    public class LongBaseEntityBuilder
+    {
+        public static long DEFAULT_ID = 1000000000L;
+        public static string DEFAULT_FIRST_NAME = "Harold";
+        public static string DEFAULT_LAST_NAME = "Collins";
+
+        private TestLongBaseEntity _baseEntity;
+
+        public LongBaseEntityBuilder(long id, string firstName, string lastName)
+        {
+            _baseEntity = new TestLongBaseEntity(id, firstName, lastName);
+        }
+
+        public TestLongBaseEntity Build()
+        {
+            return _baseEntity;
+        }
+
+        public static TestLongBaseEntity GetDefaultTestBaseEntity()
+        {
+            var tvo = new LongBaseEntityBuilder(DEFAULT_ID, DEFAULT_FIRST_NAME, DEFAULT_LAST_NAME);
+            return tvo.Build();
+        }
+    }
 }

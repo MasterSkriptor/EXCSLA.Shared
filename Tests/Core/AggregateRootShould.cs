@@ -123,5 +123,90 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests
             Assert.NotNull(@event);
             Assert.NotEqual(default, @event.DateOccured);
         }
+
+        // String ID AggregateRoot Tests
+        [Fact]
+        public void StringAggregateRootEquals_WhenIdMatches()
+        {
+            var test1 = StringAggregateRootBuilder.GetDefaultTestAggregateRoot();
+            var test2 = new StringAggregateRootBuilder(StringAggregateRootBuilder.DEFAULT_ID, StringAggregateRootBuilder.DEFAULT_FIRST_NAME,
+                StringAggregateRootBuilder.DEFAULT_LAST_NAME).Build();
+
+            Assert.Equal(test1, test2);
+        }
+
+        [Fact]
+        public void StringAggregateRootEquals_ByInheritance_FromBaseEntity()
+        {
+            var test1 = StringAggregateRootBuilder.GetDefaultTestAggregateRoot();
+            var test2 = new StringAggregateRootBuilder(StringAggregateRootBuilder.DEFAULT_ID, "Different", "Name").Build();
+
+            // AggregateRoot equality is based on Id (inherited from BaseEntity), not properties
+            Assert.Equal(test1, test2);
+        }
+
+        [Fact]
+        public void StringAggregateRootUpdatedEvent_AddsDomainEvent()
+        {
+            var test1 = StringAggregateRootBuilder.GetDefaultTestAggregateRoot();
+            var test2 = StringAggregateRootBuilder.GetDefaultTestAggregateRoot();
+            test2.UpdateName("Kayla", "Collins");
+
+            Assert.Empty(test1.Events.ToList());
+            Assert.Single(test2.Events.ToList());
+        }
+
+        [Fact]
+        public void StringAggregateRoot_HasNoEvents_OnCreation()
+        {
+            var aggregateRoot = StringAggregateRootBuilder.GetDefaultTestAggregateRoot();
+
+            Assert.Empty(aggregateRoot.Events);
+        }
+
+        [Fact]
+        public void StringAggregateRoot_CanAddMultipleEvents()
+        {
+            var aggregateRoot = StringAggregateRootBuilder.GetDefaultTestAggregateRoot();
+            
+            aggregateRoot.UpdateName("First", "Update");
+            aggregateRoot.UpdateName("Second", "Update");
+            aggregateRoot.UpdateName("Third", "Update");
+
+            Assert.Equal(3, aggregateRoot.Events.Count());
+        }
+
+        [Fact]
+        public void StringAggregateRoot_ClearEvents_RemovesAllEvents()
+        {
+            var aggregateRoot = StringAggregateRootBuilder.GetDefaultTestAggregateRoot();
+            
+            aggregateRoot.UpdateName("First", "Update");
+            aggregateRoot.UpdateName("Second", "Update");
+
+            Assert.Equal(2, aggregateRoot.Events.Count());
+
+            aggregateRoot.ClearEvents();
+
+            Assert.Empty(aggregateRoot.Events);
+        }
+
+        [Fact]
+        public void StringAggregateRoot_DoesNotEqual_DifferentId()
+        {
+            var aggregate1 = new StringAggregateRootBuilder("id-1", "John", "Doe").Build();
+            var aggregate2 = new StringAggregateRootBuilder("id-2", "John", "Doe").Build();
+
+            Assert.NotEqual(aggregate1, aggregate2);
+        }
+
+        [Fact]
+        public void StringAggregateRoot_HasCorrectId_AfterConstruction()
+        {
+            var expectedId = "test-aggregate-id";
+            var aggregateRoot = new StringAggregateRootBuilder(expectedId, "Test", "User").Build();
+
+            Assert.Equal(expectedId, aggregateRoot.Id);
+        }
     }
 }

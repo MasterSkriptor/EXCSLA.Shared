@@ -22,7 +22,7 @@ public interface IAsyncRepository<T, TId> where T : BaseEntity<TId>
     /// Retrieves an entity by its primary key asynchronously.
     /// </summary>
     /// <param name="id">The primary key value of the entity to retrieve.</param>
-    /// <returns>A task that represents the asynchronous operation with the entity result, or null if not found.</returns>
+    /// <returns>A task that represents the asynchronous operation with the entity result.</returns>
     Task<T> GetByIdAsync(TId id);
 
     /// <summary>

@@ -45,7 +45,7 @@ public abstract class BaseEntity<TId>
 
     public override int GetHashCode()
     {
-        return Id?.GetHashCode() ?? 0;
+        return EqualityComparer<TId>.Default.GetHashCode(Id);
     }
 }
 

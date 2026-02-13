@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>EXCSLA.Shared.Core: Base classes for Aggregates, Entities, Value Objects, and Domain Events.</Description>
+    <PackageId>EXCSLA.Shared.Core</PackageId>
+    <Authors>EXCSLA Team</Authors>
+    <Company>EXCSLA</Company>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,17 @@
+# Phase 1, Task 1: Create EXCSLA.Shared.Core
+
+## Context
+This is the first step in Phase 1 of the migration. Refer to `00_Migration_Introduction.txt` for the overall goal and guiding principles.
+
+## Task
+Create the `EXCSLA.Shared.Core` project, which will serve as the foundational domain layer.
+
+## Actions
+1.  Move the base classes for Aggregates, Entities, Value Objects, and Domain Events into `src/Core/EXCSLA.Shared.Core/`.
+2.  Create a new `EXCSLA.Shared.Core.csproj` file in this directory.
+3.  Update the solution file to include this new project.
+
+## Acceptance Criteria
+- The new project must only contain the specified core domain base classes.
+- The project must not have dependencies on any other new projects from this migration.
+- The solution must build without errors after the changes.

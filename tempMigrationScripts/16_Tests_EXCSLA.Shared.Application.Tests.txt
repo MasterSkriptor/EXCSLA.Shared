@@ -1,0 +1,18 @@
+# Phase 4, Task 3: Create EXCSLA.Shared.Application.Tests
+
+## Context
+This task is part of Phase 4 of the migration. Refer to `00_Migration_Introduction.txt` for the overall goal and guiding principles.
+
+## Task
+Create the `EXCSLA.Shared.Application.Tests` project to house unit tests for `EXCSLA.Shared.Application`.
+
+## Actions
+1.  Move or create tests for `EXCSLA.Shared.Application` into `tests/Application/EXCSLA.Shared.Application.Tests/`.
+2.  Create a new `EXCSLA.Shared.Application.Tests.csproj` file in this directory.
+3.  Update the solution file to include this new project.
+
+## Acceptance Criteria
+- This project must **only** contain tests for `EXCSLA.Shared.Application`.
+- It must reference `EXCSLA.Shared.Application` and any necessary testing frameworks.
+- The test project must build and all tests must pass.
+- The solution must build without errors after the changes.

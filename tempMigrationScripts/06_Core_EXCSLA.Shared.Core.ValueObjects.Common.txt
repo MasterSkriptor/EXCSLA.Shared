@@ -1,0 +1,17 @@
+# Phase 1, Task 6: Create EXCSLA.Shared.Core.ValueObjects.Common
+
+## Context
+This task is part of Phase 1 of the migration. Refer to `00_Migration_Introduction.txt` for the overall goal and guiding principles.
+
+## Task
+Create the `EXCSLA.Shared.Core.ValueObjects.Common` project for common, reusable value objects.
+
+## Actions
+1.  Move common value objects (e.g., Email, Phone, Address) into `src/Core/EXCSLA.Shared.Core.ValueObjects.Common/`.
+2.  Create a new `EXCSLA.Shared.Core.ValueObjects.Common.csproj` file in this directory.
+3.  Update the solution file to include this new project.
+
+## Acceptance Criteria
+- This project must only contain reusable value objects.
+- This project should depend on `EXCSLA.Shared.Core`.
+- The solution must build without errors after the changes.

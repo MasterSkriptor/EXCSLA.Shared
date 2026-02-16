@@ -14,14 +14,15 @@ Version 5.0 is a major release focusing on modernization and simplicity:
 
 ## 📦 NuGet Packages (MVP)
 
-### Core Domain Layer
-- **EXCSLA.Shared.Core** (DomainModels) - Base classes for Aggregates, Entities, Value Objects
-- **EXCSLA.Shared.Core.Abstractions** - Core interfaces and contracts  
-- **EXCSLA.Shared.Core.Specifications** - Specification pattern implementation
-- **EXCSLA.Shared.Core.Exceptions** - Custom domain exceptions
-- **EXCSLA.Shared.Core.GuardClauses** - Input validation extensions
-- **EXCSLA.Shared.Core.ValueObjects.Common** - Common value objects (Email, Phone, Address, etc.)
-- **EXCSLA.Shared.Core.Abstractions.DomainEventDispatcher** - Domain event interfaces
+
+### Domain Layer
+- **EXCSLA.Shared.Domain** (DomainModels) - Base classes for Aggregates, Entities, Value Objects
+- **EXCSLA.Shared.Domain.Abstractions** - Domain interfaces and contracts  
+- **EXCSLA.Shared.Domain.Specifications** - Specification pattern implementation
+- **EXCSLA.Shared.Domain.Exceptions** - Custom domain exceptions
+- **EXCSLA.Shared.Domain.GuardClauses** - Input validation extensions
+- **EXCSLA.Shared.Domain.ValueObjects.Common** - Common value objects (Email, Phone, Address, etc.)
+- **EXCSLA.Shared.Domain.Abstractions.DomainEventDispatcher** - Domain event interfaces
 
 ### Application Layer
 - **EXCSLA.Shared.Application** - Command/Query/Handler patterns with simple internal dispatcher
@@ -56,18 +57,19 @@ The framework follows Clean Architecture principles with clear separation of con
 
 ## 🎯 Quick Start
 
-### 1. Install Core Packages
+
+### 1. Install Domain Packages
 
 ```bash
-dotnet add package EXCSLA.Shared.Core --version 5.0.0
-dotnet add package EXCSLA.Shared.Core.Abstractions --version 5.0.0
+dotnet add package EXCSLA.Shared.Domain --version 5.0.0
+dotnet add package EXCSLA.Shared.Domain.Abstractions --version 5.0.0
 dotnet add package EXCSLA.Shared.Application --version 5.0.0
 ```
 
 ### 2. Create a Domain Entity
 
 ```csharp
-using EXCSLA.Shared.Core;
+using EXCSLA.Shared.Domain;
 
 namespace MyApp.Domain;
 
@@ -220,7 +222,7 @@ public class OrdersController : ControllerBase
 The framework includes common value objects:
 
 ```csharp
-using EXCSLA.Shared.Core.ValueObjects.Common;
+using EXCSLA.Shared.Domain.ValueObjects.Common;
 
 var email = new Email("user@example.com");
 var phone = new PhoneNumber("555-1234");

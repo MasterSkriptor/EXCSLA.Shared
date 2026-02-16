@@ -1,4 +1,5 @@
-using EXCSLA.Shared.Core.Interfaces;
+using EXCSLA.Shared.Domain.Exceptions;
+using EXCSLA.Shared.Domain.Interfaces;
 using EXCSLA.Shared.Infrastructure;
 using Moq;
 using Xunit;
@@ -121,15 +122,12 @@ public class InfrastructureErrorScenariosShould
     public void RejectInvalidEmailAddressesInConfiguration()
     {
         // Invalid email formats should be caught early
-        var invalidConfig = new SendGridOptions
+        Assert.Throws<EmailAddressOutOfBoundsException>(() => new SendGridOptions
         {
             Key = "SG.test_key",
-            SendFromEmailAddress = "not-an-email",  // Invalid
-            ReplyToEmailAddress = "support@company.com"
-        };
-
-        // Verify SendGridEmailClient validates email format
-        Assert.Throws<ArgumentException>(() => new SendGridEmailClient(invalidConfig));
+            SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("not-an-email"),  // Invalid
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@company.com")
+        });
     }
 
     [Fact]

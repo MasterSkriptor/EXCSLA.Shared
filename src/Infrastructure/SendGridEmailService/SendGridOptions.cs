@@ -1,4 +1,8 @@
-﻿namespace EXCSLA.Shared.Infrastructure;
+﻿
+using EXCSLA.Shared.Domain.ValueObjects;
+using Microsoft.Extensions.Options;
+
+namespace EXCSLA.Shared.Infrastructure;
 
 /// <summary>
 /// Configuration options for the SendGrid email service.
@@ -27,7 +31,7 @@ public class SendGridOptions
     /// <para>Must be a verified sender address in your SendGrid account.</para>
     /// <para>Example: noreply@example.com</para>
     /// </remarks>
-    public required string SendFromEmailAddress { get; set; }
+    public required Email SendFromEmailAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the default reply-to email address.
@@ -37,5 +41,6 @@ public class SendGridOptions
     /// <para>Recipients clicking 'Reply' in their email client will reply to this address.</para>
     /// <para>Example: support@example.com</para>
     /// </remarks>
-    public required string ReplyToEmailAddress { get; set; }
+    public required Email ReplyToEmailAddress { get; set; }
+
 }

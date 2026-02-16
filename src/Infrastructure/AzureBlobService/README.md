@@ -56,7 +56,7 @@ var services = new ServiceCollection();
 // Configure Azure Blob Storage options
 var options = new AzureBlobContainerFactory.AzureBlobContainerFactoryOptions
 {
-    ConnectionString = "DefaultEndpointsProtocol=https;AccountName=youraccountname;AccountKey=...;EndpointSuffix=core.windows.net",
+    ConnectionString = "DefaultEndpointsProtocol=https;AccountName=youraccountname;AccountKey=...;EndpointSuffix=domain.windows.net",
     ContainerName = "your-container-name"
 };
 
@@ -414,7 +414,7 @@ Public blob access is set automatically for public files:
 containerClient.SetAccessPolicyAsync(PublicAccessType.Blob);
 
 // Result: Uploaded blobs can be accessed via public URL
-// https://myaccount.blob.core.windows.net/mycontainer/file.jpg
+// https://myaccount.blob.domain.windows.net/mycontainer/file.jpg
 ```
 
 ## Common Scenarios
@@ -501,7 +501,7 @@ public async Task DeleteUserFiles(int userId)
 ```
 Error: "The string is not in the correct format"
 → Verify connection string format:
-  DefaultEndpointsProtocol=https;AccountName=...;AccountKey=...;EndpointSuffix=core.windows.net
+    DefaultEndpointsProtocol=https;AccountName=...;AccountKey=...;EndpointSuffix=domain.windows.net
 ```
 
 ### Container Name Validation

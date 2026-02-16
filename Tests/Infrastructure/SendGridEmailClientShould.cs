@@ -1,4 +1,4 @@
-using EXCSLA.Shared.Core.Interfaces;
+using EXCSLA.Shared.Domain.Interfaces;
 using EXCSLA.Shared.Infrastructure;
 using Moq;
 using Xunit;
@@ -17,8 +17,8 @@ public class SendGridEmailClientShould
         var options = new SendGridOptions
         {
             Key = "SG.test_api_key",
-            SendFromEmailAddress = "noreply@example.com",
-            ReplyToEmailAddress = "support@example.com"
+            SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("noreply@example.com"),
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@example.com")
         };
 
         // Act
@@ -30,18 +30,18 @@ public class SendGridEmailClientShould
     }
 
     [Fact]
-    public void ThrowArgumentException_WhenKeyIsNull()
+    public void ThrowNullArgumentException_WhenKeyIsNull()
     {
         // Arrange
         var options = new SendGridOptions
         {
             Key = null!,
-            SendFromEmailAddress = "noreply@example.com",
-            ReplyToEmailAddress = "support@example.com"
+            SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("noreply@example.com"),
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@example.com")
         };
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => new SendGridEmailClient(options));
+        Assert.Throws<ArgumentNullException>(() => new SendGridEmailClient(options));
     }
 
     [Fact]
@@ -51,8 +51,8 @@ public class SendGridEmailClientShould
         var options = new SendGridOptions
         {
             Key = "",
-            SendFromEmailAddress = "noreply@example.com",
-            ReplyToEmailAddress = "support@example.com"
+            SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("noreply@example.com"),
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@example.com")
         };
 
         // Act & Assert
@@ -67,56 +67,56 @@ public class SendGridEmailClientShould
         {
             Key = "SG.test_api_key",
             SendFromEmailAddress = null!,
-            ReplyToEmailAddress = "support@example.com"
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@example.com")
         };
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => new SendGridEmailClient(options));
+        Assert.Throws<ArgumentNullException>(() => new SendGridEmailClient(options));
     }
 
     [Fact]
-    public void ThrowArgumentException_WhenSendFromEmailAddressIsEmpty()
+    public void ThrowArgumentNullException_WhenSendFromEmailAddressIsEmpty()
     {
         // Arrange
         var options = new SendGridOptions
         {
             Key = "SG.test_api_key",
-            SendFromEmailAddress = "",
-            ReplyToEmailAddress = "support@example.com"
+            SendFromEmailAddress = null!, // Email value object cannot be empty string, so use null for invalid
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@example.com")
         };
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => new SendGridEmailClient(options));
+        Assert.Throws<ArgumentNullException>(() => new SendGridEmailClient(options));
     }
 
     [Fact]
-    public void ThrowArgumentException_WhenReplyToEmailAddressIsNull()
+    public void ThrowArgumentNullException_WhenReplyToEmailAddressIsNull()
     {
         // Arrange
         var options = new SendGridOptions
         {
             Key = "SG.test_api_key",
-            SendFromEmailAddress = "noreply@example.com",
+            SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("noreply@example.com"),
             ReplyToEmailAddress = null!
         };
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => new SendGridEmailClient(options));
+        Assert.Throws<ArgumentNullException>(() => new SendGridEmailClient(options));
     }
 
     [Fact]
-    public void ThrowArgumentException_WhenReplyToEmailAddressIsEmpty()
+    public void ThrowArgumentNullException_WhenReplyToEmailAddressIsEmpty()
     {
         // Arrange
         var options = new SendGridOptions
         {
             Key = "SG.test_api_key",
-            SendFromEmailAddress = "noreply@example.com",
-            ReplyToEmailAddress = ""
+            SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("noreply@example.com"),
+            ReplyToEmailAddress = null!
         };
 
         // Act & Assert
-        Assert.Throws<ArgumentException>(() => new SendGridEmailClient(options));
+        Assert.Throws<ArgumentNullException>(() => new SendGridEmailClient(options));
     }
 }
 
@@ -128,8 +128,8 @@ public class SendGridEmailClientEmailSendingShould
     private readonly SendGridOptions _validOptions = new()
     {
         Key = "SG.test_api_key",
-        SendFromEmailAddress = "noreply@example.com",
-        ReplyToEmailAddress = "support@example.com"
+        SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("noreply@example.com"),
+        ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@example.com")
     };
 
     [Fact]
@@ -168,11 +168,11 @@ public class SendGridEmailClientEmailSendingShould
     [InlineData("user@example.com", "Welcome", "<h1>Welcome!</h1>")]
     [InlineData("admin@example.com", "Admin Notification", "<p>Settings updated</p>")]
     [InlineData("support@example.org", "Support Ticket", "<p>Ticket #12345 created</p>")]
-    public void SendEmailAsync_SupportsVariousEmailAddresses(string email, string subject, string message)
+    public async Task SendEmailAsync_SupportsVariousEmailAddresses(string email, string subject, string message)
     {
-        // This validates the service is designed to handle various email addresses
         var client = new SendGridEmailClient(_validOptions);
-        Assert.NotNull(client);
+        // Act & Assert: Should not throw for valid input
+        await client.SendEmailAsync(email, subject, message);
     }
 
     [Theory]
@@ -180,11 +180,11 @@ public class SendGridEmailClientEmailSendingShould
     [InlineData("Password Reset")]
     [InlineData("Email Verification")]
     [InlineData("Weekly Newsletter")]
-    public void SendEmailAsync_SupportsVariousEmailSubjects(string subject)
+    public async Task SendEmailAsync_SupportsVariousEmailSubjects(string subject)
     {
-        // This validates subject line flexibility
         var client = new SendGridEmailClient(_validOptions);
-        Assert.NotNull(client);
+        // Use a valid email and message, vary subject
+        await client.SendEmailAsync("user@example.com", subject, "<p>Test message</p>");
     }
 
     [Theory]
@@ -192,11 +192,11 @@ public class SendGridEmailClientEmailSendingShould
     [InlineData("<h1>Title</h1><p>Content with formatting</p>")]
     [InlineData("<table><tr><td>Data</td></tr></table>")]
     [InlineData("<a href='https://example.com'>Link</a>")]
-    public void SendEmailAsync_SupportsVariousHtmlContent(string htmlContent)
+    public async Task SendEmailAsync_SupportsVariousHtmlContent(string htmlContent)
     {
-        // This validates HTML content flexibility
         var client = new SendGridEmailClient(_validOptions);
-        Assert.NotNull(client);
+        // Use a valid email and subject, vary htmlContent
+        await client.SendEmailAsync("user@example.com", "Test Subject", htmlContent);
     }
 
     [Theory]
@@ -204,70 +204,55 @@ public class SendGridEmailClientEmailSendingShould
     [InlineData("sales@example.com")]
     [InlineData("noreply@example.com")]
     [InlineData("customreply@example.com")]
-    public void SendEmailAsync_SupportsVariousReplyToAddresses(string replyToEmail)
+    public async Task SendEmailAsync_SupportsVariousReplyToAddresses(string replyToEmail)
     {
-        // This validates flexible reply-to address handling
-        var client = new SendGridEmailClient(_validOptions);
-        Assert.NotNull(client);
+        // Use a valid email, subject, and message, vary replyTo
+        var options = new SendGridOptions
+        {
+            Key = _validOptions.Key,
+            SendFromEmailAddress = _validOptions.SendFromEmailAddress,
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email(replyToEmail)
+        };
+        var client = new SendGridEmailClient(options);
+        await client.SendEmailAsync("user@example.com", "Test Subject", "<p>Test message</p>");
     }
 }
 
 /// <summary>
-/// Unit tests for SendGridOptions validation.
-/// </summary>
+/// Unit tests for SendGridOptions validation using ASP.NET Core's IValidateOptions.
 public class SendGridOptionsShould
 {
     [Fact]
-    public void RequireKey()
+    public void Validator_Succeeds_WithValidOptions()
     {
-        // Verify that Key is a required property
-        var property = typeof(SendGridOptions).GetProperty("Key");
-        Assert.NotNull(property);
-        if (property != null)
-        {
-            Assert.True(property.PropertyType == typeof(string));
-        }
-    }
-
-    [Fact]
-    public void RequireSendFromEmailAddress()
-    {
-        // Verify that SendFromEmailAddress is a required property
-        var property = typeof(SendGridOptions).GetProperty("SendFromEmailAddress");
-        Assert.NotNull(property);
-        if (property != null)
-        {
-            Assert.True(property.PropertyType == typeof(string));
-        }
-    }
-
-    [Fact]
-    public void RequireReplyToEmailAddress()
-    {
-        // Verify that ReplyToEmailAddress is a required property
-        var property = typeof(SendGridOptions).GetProperty("ReplyToEmailAddress");
-        Assert.NotNull(property);
-        if (property != null)
-        {
-            Assert.True(property.PropertyType == typeof(string));
-        }
-    }
-
-    [Fact]
-    public void AllowSettingAllProperties()
-    {
-        // Arrange
         var options = new SendGridOptions
         {
             Key = "SG.test",
-            SendFromEmailAddress = "from@example.com",
-            ReplyToEmailAddress = "reply@example.com"
+            SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("from@example.com"),
+            ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("reply@example.com")
         };
+        var validator = new SendGridOptionsValidator();
+        var result = validator.Validate(string.Empty, options);
+        Assert.True(result.Succeeded);
+    }
 
-        // Act & Assert
-        Assert.Equal("SG.test", options.Key);
-        Assert.Equal("from@example.com", options.SendFromEmailAddress);
-        Assert.Equal("reply@example.com", options.ReplyToEmailAddress);
+    [Theory]
+    [InlineData(null, "from@example.com", "reply@example.com", "SendGrid API Key is required.")]
+    [InlineData("", "from@example.com", "reply@example.com", "SendGrid API Key is required.")]
+    [InlineData("SG.test", null, "reply@example.com", "SendFromEmailAddress is required.")]
+    [InlineData("SG.test", "from@example.com", null, "ReplyToEmailAddress is required.")]
+    public void Validator_Fails_WithInvalidOptions(string? key, string? from, string? reply, string expectedMessage)
+    {
+        var options = new SendGridOptions
+            {
+                Key = key!,
+                SendFromEmailAddress = string.IsNullOrEmpty(from) ? null! : new EXCSLA.Shared.Domain.ValueObjects.Email(from),
+                ReplyToEmailAddress = string.IsNullOrEmpty(reply) ? null! : new EXCSLA.Shared.Domain.ValueObjects.Email(reply)
+            };
+        var validator = new SendGridOptionsValidator();
+        var result = validator.Validate(string.Empty, options);
+        Assert.False(result.Succeeded);
+        Assert.Contains(expectedMessage, result.FailureMessage);
     }
 }
 
@@ -348,8 +333,8 @@ public class SendGridEmailClientIntegrationScenariosShould
     private readonly SendGridOptions _options = new()
     {
         Key = "SG.test_key",
-        SendFromEmailAddress = "noreply@company.com",
-        ReplyToEmailAddress = "support@company.com"
+        SendFromEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("noreply@company.com"),
+        ReplyToEmailAddress = new EXCSLA.Shared.Domain.ValueObjects.Email("support@company.com")
     };
 
     [Fact]

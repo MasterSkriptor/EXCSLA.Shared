@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>EXCSLA.Shared.Domain</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>5.3.1</Version>
+    <Authors>H.E. Collins</Authors>
+    <Company>Executive Computer Systems, LLC</Company>
+    <Product>EXCSLA.Shared.Domain</Product>
+    <Description>Domain layer for EXCSLA.Shared DDD Framework. Provides base classes and interfaces for implementing the Domain layer in Clean Architecture, including Aggregates, Entities, Value Objects, and Domain Events.</Description>
+    <PackageDescription>
+      Domain layer for EXCSLA.Shared DDD Framework. Provides base classes and interfaces for implementing the Domain layer in Clean Architecture, including Aggregates, Entities, Value Objects, and Domain Events.
+      This package enables building domain models that encapsulate business logic and rules.
+      This is an open source project please feel free to do a pull request on the github repo.
+    </PackageDescription>
+    <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
+    <PackageTags>DDD; DotNet; Domain Driven Design; Clean Architecture; Domain Layer; Executive Computer Systems</PackageTags>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+<ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

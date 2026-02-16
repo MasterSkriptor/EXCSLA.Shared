@@ -23,8 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Application\EXCSLA.Shared.Application.csproj" />
-    <ProjectReference Include="..\..\src\Core\DomainModels\DomainModels.csproj" />
-    <ProjectReference Include="..\..\src\Core\Abstractions\Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

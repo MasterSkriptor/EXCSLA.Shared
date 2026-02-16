@@ -1,7 +1,8 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
-using EXCSLA.Shared.Core.Interfaces;
+using EXCSLA.Shared.Domain.Interfaces;
 using Ardalis.GuardClauses;
+using EXCSLA.Shared.Domain.ValueObjects;
 
 namespace EXCSLA.Shared.Infrastructure;
 
@@ -32,8 +33,8 @@ namespace EXCSLA.Shared.Infrastructure;
 public class SendGridEmailClient : IEmailSender
 {
     private readonly string _tempApiKey;
-    private readonly string _sendFromEmailAccount;
-    private readonly string _replyToEmailAccount;
+    private readonly Email _sendFromEmailAccount;
+    private readonly Email _replyToEmailAccount;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="SendGridEmailClient"/> class.
@@ -51,8 +52,10 @@ public class SendGridEmailClient : IEmailSender
     public SendGridEmailClient(SendGridOptions options)
     {
         Guard.Against.NullOrWhiteSpace(options.Key, nameof(options.Key));
-        Guard.Against.NullOrWhiteSpace(options.SendFromEmailAddress, nameof(options.SendFromEmailAddress));
-        Guard.Against.NullOrWhiteSpace(options.ReplyToEmailAddress, nameof(options.ReplyToEmailAddress));
+        if (options.SendFromEmailAddress is null)
+            throw new ArgumentNullException(nameof(options.SendFromEmailAddress));
+        if (options.ReplyToEmailAddress is null)
+            throw new ArgumentNullException(nameof(options.ReplyToEmailAddress));
 
         _tempApiKey = options.Key;
         _sendFromEmailAccount = options.SendFromEmailAddress;
@@ -74,7 +77,7 @@ public class SendGridEmailClient : IEmailSender
     /// <exception cref="SendGridClientException">Thrown if the SendGrid API request fails.</exception>
     public async Task SendEmailAsync(string email, string subject, string message)
     {
-        await SendEmailAsync(email, subject, message, _replyToEmailAccount);
+        await SendEmailAsync(email, subject, message, _replyToEmailAccount.ToString());
     }
 
     /// <summary>
@@ -97,7 +100,7 @@ public class SendGridEmailClient : IEmailSender
         var client = new SendGridClient(_tempApiKey);
         var msg = new SendGridMessage();
 
-        msg.SetFrom(_sendFromEmailAccount);
+        msg.SetFrom(_sendFromEmailAccount.ToString());
         msg.AddTo(email);
         msg.SetReplyTo(new EmailAddress(from));
         msg.SetSubject(subject);

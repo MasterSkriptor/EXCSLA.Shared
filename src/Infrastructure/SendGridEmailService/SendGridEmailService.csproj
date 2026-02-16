@@ -21,12 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Abstractions\Abstractions.csproj" />
-    <ProjectReference Include="..\..\Core\GuardClauses\GuardClauses.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.3" />
+    <PackageReference Include="Sendgrid" Version="9.28.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Sendgrid" Version="9.28.1" />
+    <ProjectReference Include="../../Domain/Domain.csproj" />
   </ItemGroup>
 
 </Project>

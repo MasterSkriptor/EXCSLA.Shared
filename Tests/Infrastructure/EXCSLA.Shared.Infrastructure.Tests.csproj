@@ -21,7 +21,6 @@
     <ProjectReference Include="..\..\src\Infrastructure\AzureBlobService\AzureBlobService.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure\AzureBlobService.Abstractions\AzureBlobService.Abstractions.csproj" />
     <ProjectReference Include="..\..\src\Infrastructure\SendGridEmailService\SendGridEmailService.csproj" />
-    <ProjectReference Include="..\..\src\Core\Abstractions\Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

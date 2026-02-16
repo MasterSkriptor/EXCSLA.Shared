@@ -50,7 +50,7 @@ Register the service in your `Program.cs` or dependency injection configuration:
 
 ```csharp
 using EXCSLA.Shared.Infrastructure;
-using EXCSLA.Shared.Core.Interfaces;
+using EXCSLA.Shared.Domain.Interfaces;
 
 // In your DI setup
 var services = new ServiceCollection();
@@ -661,7 +661,7 @@ var sendGridClient = new SendGridClient(httpClient, apiKey);
 - [SendGrid Authentication](https://docs.sendgrid.com/for-developers/authentication)
 - [SendGrid C# Library](https://github.com/sendgrid/sendgrid-csharp)
 - [EXCSLA.Shared Framework Documentation](../../../README.md)
-- [IEmailSender Interface](../../Core/Abstractions/IEmailSender.cs)
+- [IEmailSender Interface](../../Domain/Abstractions/IEmailSender.cs)
 
 ## License
 

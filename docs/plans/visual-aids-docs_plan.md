@@ -1,4 +1,4 @@
-1. [ ] Task: Create Feature Branch
+1. [x] Task: Create Feature Branch
    * Create a new feature branch from dev for the visual aids documentation update.
    * Name the branch using convention: feature/visual-aids-docs.
    * Verify: Confirm branch is created and checked out.

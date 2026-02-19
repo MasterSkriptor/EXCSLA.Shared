@@ -1,8 +1,0 @@
-You have just completed a migration task (e.g., creating a new project, moving files).
-
-As a Git expert, please commit these changes.
-
-Here's the plan:
-1.  **Stage Files:** Automatically stage all new, modified, and deleted files within the `src/`, `tests/`, and potentially the solution (`.sln`) directory that were changed as part of the last migration task.
-2.  **Commit Message:** Generate a concise and descriptive Git commit message. The commit message should start with "feat: " or "refactor: " and clearly state the name of the task that was just completed. For example, if the last task was "Create EXCSLA.Shared.Core", the message might be "feat: Create EXCSLA.Shared.Core project".
-3.  **Commit Command:** push to github

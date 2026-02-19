@@ -15,7 +15,7 @@
    * Verify Build: Run dotnet build.
 [x] Task 3 complete
 
-4. Task: Remove tempMigrationScripts Folder
+4. Task: Remove tempMigrationScripts Folder [x]
    * Delete the tempMigrationScripts folder and all its contents from the project.
    * Verify Build: Run dotnet build.
 

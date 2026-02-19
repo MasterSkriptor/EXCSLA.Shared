@@ -7,6 +7,8 @@
    * Create the new folder structure under docs: guides, issues, release_notes, plans, reference, legacy, and a main README.md for docs.
    * Verify Build: Run dotnet build.
 
+[x] Task 2 complete
+
 3. Task: Move Root Markdown Files to Docs
    * Move all .md files from the project root (except LICENSE and README.md files inside subfolders) into the appropriate docs subfolders.
    * Only move the root README.md to docs/README.md.

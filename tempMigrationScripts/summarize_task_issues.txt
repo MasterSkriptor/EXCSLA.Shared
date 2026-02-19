@@ -1,0 +1,8 @@
+I have just completed a migration task with your help.
+
+As a technical writer and quality assurance assistant, please help me document any issues or observations from this task.
+
+Here's the plan:
+2.  **Generate Summary:** write a summary report detailing any issues you had completing this task, and what we could have done to avoid it.
+3.  **Save to File:** Save this summary to a new file named `docs/logs/<CURRENT_TASK_NAME_HERE>_issues.md`. You should infer the current task name from our previous conversation. For example, if the last task was "Create EXCSLA.Shared.Core", the file would be `docs/logs/EXCSLA.Shared.Core_issues.md`. If no issues were reported, the summary file should state "No significant issues were encountered during this task."
+4.  **Confirm:** Confirm the full path where the summary file has been saved.

@@ -162,7 +162,7 @@ dotnet build
 "Run dotnet build to verify the project compiles after updating the changelog."
 
 ---
-### [ ] **Implementing Task 7: Add or Update Tests for Documentation Code Snippets**
+### [x] **Implementing Task 7: Add or Update Tests for Documentation Code Snippets**
 
 **File:** tests/core/EXCSLA.Shared.Core.Tests.csproj (and related test files)
 **Action:** `replace`

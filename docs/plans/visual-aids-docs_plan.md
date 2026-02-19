@@ -23,7 +23,7 @@
    * Update or create a CHANGELOG.md to record documentation changes related to visual aids.
    * Verify Build: Run dotnet build.
 
-7. [ ] Task: Add or Update Tests for Documentation Code Snippets
+7. [x] Task: Add or Update Tests for Documentation Code Snippets
    * Ensure all code snippets in documentation build and run as shown, adding or updating tests as needed.
    * Verify Tests: Run dotnet test.
 

@@ -36,7 +36,7 @@
    * Check for and fix any broken links or outdated references in all documentation files.
    * Verify Build: Run dotnet build.
 
-9. Task: Update Main Project README to Highlight Changes
+9. Task: Update Main Project README to Highlight Changes [x]
    * Optionally, update the main project README (now docs/README.md) to direct users to the new documentation structure and highlight the migration/breaking changes guide.
    * Verify Build: Run dotnet build.
 

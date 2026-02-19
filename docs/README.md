@@ -10,6 +10,9 @@
 - [Reference](reference/)
 - [Legacy](legacy/)
 
+## Migration Notice
+A major breaking change has moved all domain logic from Core to Domain. See [guides/MigrationGuide_Plan.md](guides/MigrationGuide_Plan.md) for migration steps and details.
+
 ## Folder Explanations
 - **guides/**: How-tos, migration guides, and best practices
 - **issues/**: Issue tracking and documentation
@@ -17,5 +20,3 @@
 - **plans/**: Project and documentation plans
 - **reference/**: API and technical references
 - **legacy/**: Archived or legacy documentation
-
-For migration details, see [guides/MigrationGuide_Plan.md](guides/MigrationGuide_Plan.md).

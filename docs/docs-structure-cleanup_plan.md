@@ -19,7 +19,7 @@
    * Delete the tempMigrationScripts folder and all its contents from the project.
    * Verify Build: Run dotnet build.
 
-5. Task: Update Documentation Links and References
+5. Task: Update Documentation Links and References [x]
    * Update all documentation references and links to match the new docs structure.
    * Verify Build: Run dotnet build.
 

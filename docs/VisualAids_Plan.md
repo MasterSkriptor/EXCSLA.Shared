@@ -20,3 +20,13 @@
 11. (Optional) Automate checks for formatting, broken links, and code snippet validity
 
 12. Ensure all code compiles and passes tests before pushing to GitHub
+
+## Feedback
+
+We value your input! To provide feedback on the visual aids documentation:
+
+- Open an issue in the [EXCSLA.Shared GitHub repository](https://github.com/MasterSkriptor/EXCSLA.Shared/issues) with the label `documentation-feedback`.
+- Suggest improvements, report errors, or request additional diagrams.
+- Alternatively, email the maintainers or use the feedback form (if available).
+
+Feedback will be reviewed during documentation updates. Major changes will be announced in the CHANGELOG and main README.

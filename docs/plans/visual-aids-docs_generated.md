@@ -15,7 +15,7 @@ git checkout -b feature/visual-aids-docs dev
 ---
 ### [ ] **Implementing Task 2: Add Visual Aids Documentation Plan**
 
-**File:** docs/VisualAids_Plan.md
+### [x] **Implementing Task 6: Update or Create CHANGELOG for Documentation Changes**
 **Action:** `write_file`
 
 **Content:**

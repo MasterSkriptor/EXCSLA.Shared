@@ -19,7 +19,7 @@
    * Update documentation to include accessibility features and specify the review/approval workflow for documentation changes as outlined in the plan.
    * Verify Build: Run dotnet build.
 
-6. [ ] Task: Update or Create CHANGELOG for Documentation Changes
+6. [x] Task: Update or Create CHANGELOG for Documentation Changes
    * Update or create a CHANGELOG.md to record documentation changes related to visual aids.
    * Verify Build: Run dotnet build.
 

@@ -7,7 +7,7 @@
    * Add the VisualAids_Plan.md file to the documentation directory.
    * Verify Build: Run dotnet build.
 
-3. [ ] Task: Reference Visual Aids Plan in Main Documentation
+3. [x] Task: Reference Visual Aids Plan in Main Documentation
    * Update the main documentation index to reference the VisualAids_Plan.md.
    * Verify Build: Run dotnet build.
 

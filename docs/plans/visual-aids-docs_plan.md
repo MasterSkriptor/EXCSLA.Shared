@@ -11,7 +11,7 @@
    * Update the main documentation index to reference the VisualAids_Plan.md.
    * Verify Build: Run dotnet build.
 
-4. [ ] Task: Add Placeholder Diagrams for CQRS, Layered Architecture, and Dependencies
+4. [x] Task: Add Placeholder Diagrams for CQRS, Layered Architecture, and Dependencies
    * Add placeholder diagram files or sections for CQRS flow, layered architecture, and dependency graph as described in the plan.
    * Verify Build: Run dotnet build.
 

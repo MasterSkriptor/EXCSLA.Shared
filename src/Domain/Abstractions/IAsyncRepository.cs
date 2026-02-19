@@ -9,20 +9,21 @@ namespace EXCSLA.Shared.Domain.Interfaces;
 /// Provides CRUD operations and specification-based querying for filtering, sorting, and pagination.
 /// </summary>
 /// <typeparam name="T">The type of entity this repository manages. Must derive from BaseEntity.</typeparam>
+/// <typeparam name="TId">The type of the entity's identifier (e.g., int, Guid, string).</typeparam>
 /// <remarks>
 /// This interface is designed to work with specifications (ISpecification&lt;T&gt;) to provide
 /// a flexible query mechanism without exposing the underlying ORM (e.g., Entity Framework Core).
 /// Implementations should handle all data access concerns including eager loading,
 /// filtering, sorting, and pagination.
 /// </remarks>
-public interface IAsyncRepository<T> where T : BaseEntity
+public interface IAsyncRepository<T, TId> where T : BaseEntity<TId>
 {
     /// <summary>
     /// Retrieves an entity by its primary key asynchronously.
     /// </summary>
     /// <param name="id">The primary key value of the entity to retrieve.</param>
-    /// <returns>A task that represents the asynchronous operation with the entity result, or null if not found.</returns>
-    Task<T> GetByIdAsync(int id);
+    /// <returns>A task that represents the asynchronous operation with the entity result.</returns>
+    Task<T> GetByIdAsync(TId id);
 
     /// <summary>
     /// Retrieves all entities of type T asynchronously.
@@ -64,4 +65,13 @@ public interface IAsyncRepository<T> where T : BaseEntity
     /// <param name="spec">The specification that defines filtering criteria.</param>
     /// <returns>A task that represents the asynchronous operation with the count of matching entities.</returns>
     Task<int> CountAsync(ISpecification<T> spec);
+}
+
+/// <summary>
+/// Generic async repository interface for data access operations on aggregate root entities with integer identity.
+/// This is a convenience interface for backward compatibility.
+/// </summary>
+/// <typeparam name="T">The type of entity this repository manages. Must derive from BaseEntity.</typeparam>
+public interface IAsyncRepository<T> : IAsyncRepository<T, int> where T : BaseEntity<int>
+{
 }

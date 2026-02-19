@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects
 {
-    public class TestIntBaseEntity : BaseEntity
+    public class TestIntBaseEntity : BaseEntity<int>
     {
         public string FirstName {get; private set;}
         public string LastName {get; private set;}
@@ -22,9 +22,8 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects
         }
     }
 
-    public class TestGuidBaseEntity : BaseEntity
+    public class TestGuidBaseEntity : BaseEntity<Guid>
     {
-        public new Guid Id { get; private set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
 
@@ -39,42 +38,41 @@ namespace EXCSLA.Shared.Tests.Core.UnitTests.BaseTestObjects
         {
             return this.FirstName + " " + this.LastName;
         }
+    }
 
-        public override bool Equals(object? obj)
+    public class TestStringBaseEntity : BaseEntity<string>
+    {
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+
+        public TestStringBaseEntity(string id, string firstName, string lastName)
         {
-            var other = obj as TestGuidBaseEntity;
-
-            if (ReferenceEquals(other, null))
-                return false;
-
-            if (ReferenceEquals(this, other))
-                return true;
-
-            if (ReferenceEquals(other, default) || ReferenceEquals(this, default))
-                return false;
-
-            return EqualityComparer<object>.Default.Equals(Id, other.Id);
+            this.Id = id;
+            this.FirstName = firstName;
+            this.LastName = lastName;
         }
 
-        public static bool operator ==(TestGuidBaseEntity a, TestGuidBaseEntity b)
+        public override string ToString()
         {
-            if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
-                return true;
+            return this.FirstName + " " + this.LastName;
+        }
+    }
 
-            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
-                return false;
+    public class TestLongBaseEntity : BaseEntity<long>
+    {
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
 
-            return a.Equals(b);
+        public TestLongBaseEntity(long id, string firstName, string lastName)
+        {
+            this.Id = id;
+            this.FirstName = firstName;
+            this.LastName = lastName;
         }
 
-        public static bool operator !=(TestGuidBaseEntity a, TestGuidBaseEntity b)
+        public override string ToString()
         {
-            return !(a == b);
-        }
-
-        public override int GetHashCode()
-        {
-            return Id.GetHashCode();
+            return this.FirstName + " " + this.LastName;
         }
     }
 }

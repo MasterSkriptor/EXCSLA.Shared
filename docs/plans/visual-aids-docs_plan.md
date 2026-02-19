@@ -15,7 +15,7 @@
    * Add placeholder diagram files or sections for CQRS flow, layered architecture, and dependency graph as described in the plan.
    * Verify Build: Run dotnet build.
 
-5. [ ] Task: Update Documentation for Accessibility and Review Workflow
+5. [x] Task: Update Documentation for Accessibility and Review Workflow
    * Update documentation to include accessibility features and specify the review/approval workflow for documentation changes as outlined in the plan.
    * Verify Build: Run dotnet build.
 

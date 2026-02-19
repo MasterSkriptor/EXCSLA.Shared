@@ -41,7 +41,7 @@ dotnet build
 "Run dotnet build to verify the project compiles after creating the docs folder structure."
 
 ---
-### [ ] **Implementing Task 3: Move Root Markdown Files to Docs**
+### [x] **Implementing Task 3: Move Root Markdown Files to Docs**
 
 **File:** docs/
 **Action:** `run_shell_command`

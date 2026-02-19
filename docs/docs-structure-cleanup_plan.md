@@ -13,6 +13,7 @@
    * Move all .md files from the project root (except LICENSE and README.md files inside subfolders) into the appropriate docs subfolders.
    * Only move the root README.md to docs/README.md.
    * Verify Build: Run dotnet build.
+[x] Task 3 complete
 
 4. Task: Remove tempMigrationScripts Folder
    * Delete the tempMigrationScripts folder and all its contents from the project.

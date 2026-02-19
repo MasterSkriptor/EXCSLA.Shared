@@ -41,5 +41,6 @@
    * Verify Build: Run dotnet build.
 
 10. Task: Verify All Tests Pass
-    * Run dotnet test to ensure all tests pass after documentation and file changes.
-    * Verify Tests: Run dotnet test.
+   * Run dotnet test to ensure all tests pass after documentation and file changes.
+   * Verify Tests: Run dotnet test.
+[x] Task 10 complete

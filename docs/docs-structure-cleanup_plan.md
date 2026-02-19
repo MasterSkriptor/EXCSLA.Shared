@@ -32,7 +32,7 @@
    * Update docs/README.md to include a table of contents and folder explanations for the new docs structure.
    * Verify Build: Run dotnet build.
 
-8. Task: Fix Broken Links and Outdated References
+8. Task: Fix Broken Links and Outdated References [x]
    * Check for and fix any broken links or outdated references in all documentation files.
    * Verify Build: Run dotnet build.
 

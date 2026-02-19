@@ -63,7 +63,6 @@ dotnet build
 ### [ ] **Implementing Task 3: Reference Visual Aids Plan in Main Documentation**
 
 **File:** docs/README.md
-**Action:** `replace`
 
 **Content:**
 (Add a reference or link to VisualAids_Plan.md in the main documentation index, e.g. under a 'Visual Aids' or 'Architecture' section)
@@ -77,55 +76,54 @@ dotnet build
 **File:** N/A
 **Action:** `run_shell_command`
 
-**Command:**
-```
-dotnet build
-```
-
-**Agent Prompt:**
-"Run dotnet build to verify the project compiles after updating the documentation index."
-
----
-### [ ] **Implementing Task 4: Add Placeholder Diagrams for CQRS, Layered Architecture, and Dependencies**
+(Add or update sections to ensure accessibility: use proper headings, alt text for images, tables for structure, and a section describing the review/approval workflow for documentation changes.)
+### [x] **Implementing Task 2: Add Visual Aids Documentation Plan**
 
 **File:** docs/VisualAids_Plan.md
-**Action:** `replace`
+**Action:** `write_file`
 
 **Content:**
-(Add placeholder sections or files for CQRS flow, layered architecture, and dependency graph diagrams. For example, add headings and a note like 'Diagram coming soon' or a placeholder image/mermaid block.)
+# Visual Aids Documentation Plan
+
+## Context
+- Audience: All users, especially visual learners
+- Goal: Provide clear diagrams for CQRS, layered architecture, and dependencies
+- Requirements: Modern, easy-to-reference diagrams
+- References: CQRS/DDD docs, EXCSLA repo
+
+## Plan Steps
+1. Create CQRS flow diagram
+2. Add layered architecture diagram
+3. Add dependency graph
+4. Reference diagrams in other docs
+5. Update or create a CHANGELOG.md for documentation changes
+6. Specify review/approval workflow for documentation changes
+7. Verify all code snippets build and run as shown (if any)
+8. Ensure documentation accessibility (headings, alt text, tables)
+9. Collect feedback from users and Copilot after major updates
+10. Archive or link to old documentation versions as needed
+11. (Optional) Automate checks for formatting, broken links, and code snippet validity
+
+12. Ensure all code compiles and passes tests before pushing to GitHub
 
 **Agent Prompt:**
-"Add placeholder diagram files or sections for CQRS flow, layered architecture, and dependency graph as described in the plan."
+"Add the VisualAids_Plan.md file to the documentation directory."
 
 ---
-### [ ] **Verifying Task 4**
+### [x] **Verifying Task 2**
 
 **File:** N/A
 **Action:** `run_shell_command`
 
 **Command:**
 ```
-dotnet build
+
 ```
 
 **Agent Prompt:**
-"Run dotnet build to verify the project compiles after adding diagram placeholders."
+"Run dotnet build to verify the project compiles after adding the VisualAids_Plan.md."
 
 ---
-### [ ] **Implementing Task 5: Update Documentation for Accessibility and Review Workflow**
-
-**File:** docs/VisualAids_Plan.md
-**Action:** `replace`
-
-**Content:**
-(Add or update sections to ensure accessibility: use proper headings, alt text for images, tables for structure, and a section describing the review/approval workflow for documentation changes.)
-
-**Agent Prompt:**
-"Update documentation to include accessibility features and specify the review/approval workflow for documentation changes as outlined in the plan."
-
----
-### [ ] **Verifying Task 5**
-
 **File:** N/A
 **Action:** `run_shell_command`
 

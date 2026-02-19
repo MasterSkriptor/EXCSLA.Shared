@@ -169,7 +169,7 @@ dotnet build
 "Run dotnet build to verify the project compiles after adding the migration guide."
 
 ---
-### [ ] **Implementing Task 7: Update docs/README.md with Table of Contents**
+### [x] **Implementing Task 7: Update docs/README.md with Table of Contents**
 
 **File:** docs/README.md
 **Action:** `replace`

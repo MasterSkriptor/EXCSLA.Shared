@@ -28,7 +28,7 @@
    * Add or update guides/MigrationGuide_Plan.md to explain the Core→Domain breaking change, including migration steps and references.
    * Verify Build: Run dotnet build.
 
-7. Task: Update docs/README.md with Table of Contents
+7. Task: Update docs/README.md with Table of Contents [x]
    * Update docs/README.md to include a table of contents and folder explanations for the new docs structure.
    * Verify Build: Run dotnet build.
 

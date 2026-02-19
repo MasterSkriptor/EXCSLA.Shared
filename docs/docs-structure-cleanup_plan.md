@@ -23,7 +23,8 @@
    * Update all documentation references and links to match the new docs structure.
    * Verify Build: Run dotnet build.
 
-6. Task: Add/Update Migration Guide for Core→Domain Change
+
+6. Task: Add/Update Migration Guide for Core→Domain Change [x]
    * Add or update guides/MigrationGuide_Plan.md to explain the Core→Domain breaking change, including migration steps and references.
    * Verify Build: Run dotnet build.
 

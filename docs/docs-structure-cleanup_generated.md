@@ -125,7 +125,7 @@ dotnet build
 "Run dotnet build to verify the project compiles after updating documentation links."
 
 ---
-### [ ] **Implementing Task 6: Add/Update Migration Guide for Core→Domain Change**
+### [x] **Implementing Task 6: Add/Update Migration Guide for Core→Domain Change**
 
 **File:** docs/guides/MigrationGuide_Plan.md
 **Action:** `write_file`

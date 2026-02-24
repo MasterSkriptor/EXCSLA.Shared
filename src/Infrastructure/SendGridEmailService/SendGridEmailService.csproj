@@ -9,7 +9,7 @@
     <Company>Executive Computer Systems, LLC</Company>
     <Description>A Domain Driven shared library, containing basic components for setting up an email service using SendGrid.</Description>
     <RepositoryUrl>https://github.com/MasterSkriptor/EXCSLA.Shared</RepositoryUrl>
-    <Version>5.3.1</Version>
+    <Version>5.4.0</Version>
     <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ImplicitUsings>enable</ImplicitUsings>

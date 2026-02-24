@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <PackageId>EXCSLA.Shared.Domain</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>5.3.1</Version>
+    <Version>5.4.0</Version>
     <Authors>H.E. Collins</Authors>
     <Company>Executive Computer Systems, LLC</Company>
     <Product>EXCSLA.Shared.Domain</Product>

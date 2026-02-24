@@ -39,3 +39,33 @@
 
 ---
 For more details, see the main `README.md` and layer-specific `README.md` files.
+
+## Quick Reference for AI Agents
+
+- **Architecture**: Strict Clean Architecture. Domain is pure, Application orchestrates, Infrastructure implements integrations. No cross-layer dependencies except as allowed (Application → Domain, Infrastructure → Application/Domain).
+- **CQRS**: All commands/queries use `ICommand`, `IQuery`, and are dispatched via `IDispatcher`. Handlers are in Application layer.
+- **Value Objects**: Always immutable. For EF Core, use `OwnsOne` in mapping.
+- **Events**: All domain events inherit from `BaseDomainEvent`.
+- **Testing**: Use `dotnet test` or VS Code `watch` task. Example tests in `tests/core/`.
+- **Build/Run**: Use `dotnet build` for solution, `dotnet run` in example API folder for demo.
+- **External Services**: Integrate via DI. See `src/Infrastructure/AzureBlobService/README.md` and `src/Infrastructure/SendGridEmailService/README.md` for setup.
+- **Documentation**: See `docs/README.md` for accessibility, review workflow, and visual aids plan. Diagrams and plans are in `docs/VisualAids_Plan.md` and `docs/VisualAids_Diagrams.md`.
+- **Naming**: All new code should follow the `EXCSLA.Shared.[Layer].[Component]` pattern.
+- **Examples**: For a working reference, see `examples/SimpleOrderApi/`.
+
+### Key Files & Folders
+- `src/Domain/README.md`: Domain modeling patterns
+- `src/Application/README.md`: CQRS and orchestration
+- `src/Infrastructure/AzureBlobService/README.md`: Azure Blob integration
+- `src/Infrastructure/SendGridEmailService/README.md`: SendGrid integration
+- `examples/SimpleOrderApi/README.md`: End-to-end example
+- `docs/README.md`: Documentation standards and review process
+
+### Non-Obvious Conventions
+- Never reference Infrastructure from Domain or Application.
+- Value objects are always immutable and must be mapped with `OwnsOne` in EF Core.
+- All external service implementations must be registered via DI.
+- All documentation changes require review and changelog update (see `docs/README.md`).
+
+---
+For further details, consult the referenced READMEs and documentation files.

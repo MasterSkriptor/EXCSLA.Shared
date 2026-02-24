@@ -5,7 +5,7 @@ namespace EXCSLA.Shared.Domain;
 /// <summary>
 /// Base class for DDD Aggregates. This class bakes domain events into the base entity.
 /// </summary>
-public abstract class BaseAggregateRoot : BaseEntity
+public abstract class BaseAggregateRoot<TId> : BaseEntity<TId>
 {
 	private readonly List<BaseDomainEvent> _events = new List<BaseDomainEvent>();
 	public virtual IReadOnlyList<BaseDomainEvent> Events => _events;
@@ -26,4 +26,11 @@ public abstract class BaseAggregateRoot : BaseEntity
 	{
 		_events.Clear();
 	}
+}
+
+/// <summary>
+/// Base class for DDD Aggregates with integer identity (convenience).
+/// </summary>
+public abstract class BaseAggregateRoot : BaseAggregateRoot<int>
+{
 }
